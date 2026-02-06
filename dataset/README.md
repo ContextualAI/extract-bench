@@ -1,53 +1,102 @@
-# ExtractBench Dataset
+# Extract Bench Dataset
 
-A benchmark for evaluating structured information extraction from PDF documents using large language models. ExtractBench consists of 35 PDF documents across 5 domains, each paired with a JSON schema defining the target extraction structure and a human-annotated gold standard JSON extraction.
+A multi-domain benchmark dataset for evaluating structured extraction from PDF documents. Each task consists of a source PDF, a target JSON Schema defining what to extract, and a human-validated gold JSON with the expected output.
 
-## Dataset Structure
+## Dataset Organization
 
 ```
 dataset/
-  academic/research/          # 6 research papers
-  finance/10kq/               # 7 SEC 10-K/Q filings
-  finance/credit_agreement/   # 10 credit agreements
-  hiring/resume/              # 7 professional resumes
-  sport/swimming/             # 5 competition results
+├── {domain}/
+│   └── {schema}/
+│       ├── {schema}-schema.json          # JSON Schema defining extraction target
+│       └── pdf+gold/
+│           ├── {document}.pdf            # Source PDF
+│           └── {document}.gold.json      # Human-validated extraction output
 ```
 
-Each domain directory contains:
-- `<domain>-schema.json` -- JSON schema defining the target extraction structure
-- `pdf+gold/` -- paired PDF documents and gold standard extractions (`<name>.pdf`, `<name>.gold.json`)
+Each **domain** (e.g., `finance`, `academic`) contains one or more **schemas** (e.g., `10k`, `credit_agreement`). Each schema defines a structured extraction task. Under `pdf+gold/`, source PDFs are paired with their corresponding `.gold.json` files.
 
-## Domains
+## Domains and Schemas
 
-| Domain | Documents | Pages | Schema Keys | Gold Values |
-|---|---|---|---|---|
-| SEC 10-K/Qs | 7 | 422 | 369 | 9,036 |
-| Professional Resumes | 7 | 21 | 31 | 721 |
-| Credit Agreements | 10 | 1,368 | 13 | 257 |
-| Sports Results | 5 | 15 | 12 | 136 |
-| Research Papers | 6 | 250 | 16 | 153 |
-| **Total** | **35** | **2,076** | **441** | **10,303** |
-
-*Schema Keys* counts evaluatable leaf nodes per schema. *Gold Values* counts all evaluatable leaf values across the gold annotations, including expanded array items.
+| Domain     | Schema             | Documents        | Description                                                                           |
+| ---------- | ------------------ | ---------------- | ------------------------------------------------------------------------------------- |
+| `finance`  | `10k`              | 7                | Financial metrics from SEC 10-K/10-Q filings (EPS, revenue, net income, segment data) |
+| `finance`  | `credit_agreement` | 10               | Parties and key terms from corporate credit agreements                                |
+| `academic` | `research`         | 6                | Metadata from research papers (authors, affiliations, abstract, citations)            |
+| `hiring`   | `resume`           | 7                | Structured fields from resumes (experience, education, skills, certifications)        |
+| `sport`    | `swimming`         | 5                | Championship results tables (rankings, times, records, athlete details)               |
+| **Total**  | **5 schemas**      | **35 documents** |                                                                                       |
 
 ## Schema Format
 
-Schemas are standard JSON Schema with optional `evaluation_config` blocks specifying how fields should be evaluated:
+Schemas are [JSON Schema](https://json-schema.org/) documents extended with an `evaluation_config` field that specifies how each leaf node should be scored during evaluation. For example:
 
-- `string_similarity` -- fuzzy string matching
-- `integer_exact_match` -- exact numeric match
-- `number_tolerance` -- numeric match within a tolerance (e.g., `{"tolerance": 0.001}`)
-- `llm_judge` -- LLM-based semantic evaluation for arrays and complex fields
-
-## Citation
-
-```bibtex
-@inproceedings{extractbench2025,
-  title={ExtractBench: A Benchmark for Structured Extraction from PDFs},
-  year={2025}
+```json
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The full title of the research paper.",
+      "evaluation_config": "string_semantic"
+    },
+    "ids": {
+      "type": "string",
+      "description": "Unique identifier (DOI, arXiv ID, etc.).",
+      "evaluation_config": "string_exact"
+    },
+    "page_count": {
+      "type": "integer",
+      "evaluation_config": "integer_exact"
+    }
+  }
 }
+```
+
+Available evaluation metrics include `string_exact`, `string_fuzzy`, `string_semantic` (LLM-based), `number_tolerance`, `integer_exact`, `boolean_exact`, `array_llm`, and others. See the [evaluation suite README](../README.md) for the full list.
+
+## Gold JSON Format
+
+Each `.gold.json` file contains a JSON object conforming to its corresponding schema. Values are human-validated extractions from the paired PDF. Example (credit agreement):
+
+```json
+{
+  "parties": {
+    "borrower": "Amazon.com, Inc.",
+    "administrative_agent": "JPMorgan Chase Bank, N.A.",
+    "lenders": ["JPMorgan Chase Bank, N.A.", "Bank of America, N.A.", "..."]
+  },
+  "key_terms": {
+    "agreement_date": "September 5, 2014",
+    "governing_law": "State of New York",
+    "total_loan_commitment": "$2,000,000,000"
+  }
+}
+```
+
+## Design Principles
+
+- **Domain diversity**: Finance, academia, hiring, sports -- covering prose, tables, and mixed layouts.
+- **Schema complexity variety**: From flat key-value extraction (swimming results) to deeply nested structures with arrays of objects (credit agreements, resumes).
+- **Per-field evaluation control**: Each schema field declares its own evaluation metric, enabling precise scoring (e.g., exact match for IDs, semantic similarity for descriptions, tolerance for financial figures).
+
+## Usage with Extract Bench
+
+This dataset is designed to be used with the [Extract Bench evaluation suite](../README.md):
+
+```python
+import json
+from pathlib import Path
+from extract_bench import ReportBuilder, ReportConfig
+
+schema = json.load(open("dataset/finance/10k/10k-schema.json"))
+gold = json.load(open("dataset/finance/10k/pdf+gold/dell_10q_fy2025q2.gold.json"))
+predicted = your_extraction_model(pdf_path, schema)
+
+config = ReportConfig(output_dir=Path("./results"), output_name="dell-10q-gpt4o")
+report = ReportBuilder(config).build(schema, gold, predicted)
 ```
 
 ## License
 
-TBD
+See the repository [LICENSE](../LICENSE) for terms.
