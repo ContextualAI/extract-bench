@@ -1,6 +1,6 @@
 {
   "parties": {
-    "administrative_agent": "ABN AMRO BANK N.V.,",
+    "administrative_agent": "ABN AMRO BANK N.V.",
     "borrower": "Adobe Systems Incorporated",
     "lead_arranger": null,
     "lenders": [
@@ -31,6 +31,6 @@
     "borrowing_request": "Borrower shall give each Notice of Revolving Loan Borrowing to Administrative Agent at least three (3)Business Days before the date of the requested Revolving Loan Borrowing in the case of a Revolving LoanBorrowing consisting of LIBOR Loans and at least one (1) Business Day before the date of the requestedRevolving Loan Borrowing in the case of a Revolving Loan Borrowing consisting of Base Rate Loans.",
     "governing_law": "State of California",
     "maturity_date": "2003-08-08",
-    "use_of_proceeds": "Borrower shall use the proceeds of the Loans only for the respective purposes setforth in Paragraph 2.05 . Borrower shall not use any part of the proceeds of any Loan, directly or indirectly,for the purpose of purchasing or carrying any Margin Stock or for the purpose of purchasing or  arrying ortrading in any securities under such circumstances as to involve Borrower, any Lender or AdministrativeAgent in a violation of Regulations T, U or X issued by the Federal Reserve Board."
+    "use_of_proceeds": "Borrower shall use the proceeds of the Loans only for the respective purposes set forth in Paragraph 2.05 . Borrower shall not use any part of the proceeds of any Loan, directly or indirectly,for the purpose of purchasing or carrying any Margin Stock or for the purpose of purchasing or carrying ortrading in any securities under such circumstances as to involve Borrower, any Lender or AdministrativeAgent in a violation of Regulations T, U or X issued by the Federal Reserve Board."
   }
 }

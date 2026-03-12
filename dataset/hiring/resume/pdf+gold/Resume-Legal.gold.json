@@ -1,8 +1,10 @@
 {
   "personalInfo": {
     "fullName": "Victoria Hammond",
-    "emails": "v.hammond@lawfirm-example.com",
-    "phones": "987123456",
+    "contact": {
+      "emails": ["v.hammond@lawfirm-example.com"],
+      "phones": ["987123456"]
+    },
     "personalStatement": "Accomplished corporate attorney with 14+ years of experience in mergers & acquisitions, corporate governance, and commercial litigation."
   },
   "media": [],
@@ -13,7 +15,7 @@
       "array_index": 0,
       "employer": "Whitestone & Associates LLP",
       "jobTitle": "Partner",
-      "startDate": "2019-12-31T23:00:00.000Z",
+      "startDate": "January 2020",
       "endDate": null,
       "isCurrent": true,
       "description": "Lead M&A transactions valued between $50M\u2013$500M across technology and healthcare sectors; Advise C-suite executives and boards on corporate governance and compliance matters; Manage team of 8 associates and paralegals on complex multi-jurisdictional deals; Successfully negotiated and closed 35+ acquisition agreements with favorable terms"
@@ -22,8 +24,8 @@
       "array_index": 1,
       "employer": "Silverbridge Legal Group",
       "jobTitle": "Senior Associate",
-      "startDate": "2015-08-31T22:00:00.000Z",
-      "endDate": "2019-11-30T23:00:00.000Z",
+      "startDate": "September 2015",
+      "endDate": "December 2019",
       "isCurrent": false,
       "description": "Represented clients in commercial litigation cases with settlements exceeding $120M; Drafted and negotiated commercial contracts, licensing agreements, and joint ventures; Conducted legal due diligence for private equity transactions and IPO preparations; Provided regulatory compliance counsel for publicly traded companies"
     },
@@ -31,8 +33,8 @@
       "array_index": 2,
       "employer": "Crestview & Partners",
       "jobTitle": "Associate Attorney",
-      "startDate": "2011-07-31T22:00:00.000Z",
-      "endDate": "2015-07-31T22:00:00.000Z",
+      "startDate": "August 2011",
+      "endDate": "August 2015",
       "isCurrent": false,
       "description": "Assisted in preparation of securities filings and regulatory compliance documentation; Researched complex legal issues and prepared memoranda for senior partners; Represented clients in arbitration and mediation proceedings; Managed document discovery process for major litigation cases"
     }
@@ -54,16 +56,16 @@
       "array_index": 0,
       "institution": "Eastwood Law School",
       "qualificationTitle": "Juris Doctor (JD)",
-      "startDate": "2012-08-31T22:00:00.000Z",
-      "endDate": "2016-05-31T22:00:00.000Z",
+      "startDate": "September 2012",
+      "endDate": "June 2016",
       "description": "GPA: 3.7/4.0\nRelevant coursework: Algorithms, Database Systems, Machine Learning, Distributed Systems"
     },
     {
       "array_index": 1,
       "institution": "Northgate University",
       "qualificationTitle": "BA \u2013 Political Science",
-      "startDate": "2004-08-31T22:00:00.000Z",
-      "endDate": "2008-04-30T22:00:00.000Z",
+      "startDate": "September 2004",
+      "endDate": "May 2008",
       "description": "Summa Cum Laude (GPA: 3.95/4.0)"
     }
   ],
@@ -85,6 +87,7 @@
   "other": [
     {
       "array_index": 0,
+      "sectionTitle": "Bar Admissions",
       "content": "\u2022 Riverside State Bar (2011)\n\u2022 Northern District State Bar (2012)\n\u2022 Federal District Court, Southern Region"
     }
   ]

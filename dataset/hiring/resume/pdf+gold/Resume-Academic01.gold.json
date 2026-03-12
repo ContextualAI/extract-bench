@@ -1,13 +1,13 @@
 {
   "personalInfo": {
-    "fullName": "Isabella Rossi",
+    "fullName": "Dr. Isabella Rossi",
     "personalStatement": "Distinguished Professor of Art History with over 35 years of scholarly excellence specializing in Renaissance and Baroque art, with particular focus on Italian painting and patronage networks.",
     "contact": {
       "emails": [],
       "phones": []
     }
   },
-  "skills": null,
+  "skills": [],
   "socialLinks": [],
   "workExperience": [
     {
@@ -114,7 +114,7 @@
     {
       "array_index": 13,
       "employer": "Galleria Borghese / Louvre / Met Museum",
-      "qualificationTitle": "Lead Curator",
+      "jobTitle": "Lead Curator",
       "endDate": 2022,
       "isCurrent": false,
       "startDate": 2020,
@@ -123,7 +123,7 @@
     {
       "array_index": 14,
       "employer": "Metropolitan Museum of Art",
-      "qualificationTitle": "Co-Curator",
+      "jobTitle": "Co-Curator",
       "endDate": 2018,
       "isCurrent": false,
       "startDate": 2018,
@@ -132,7 +132,7 @@
     {
       "array_index": 15,
       "employer": "Artemisia Gentileschi Retrospective",
-      "qualificationTitle": "Scientific Director",
+      "jobTitle": "Scientific Director",
       "endDate": 2016,
       "isCurrent": false,
       "startDate": 2015,
@@ -141,7 +141,7 @@
     {
       "array_index": 16,
       "employer": "Uffizi Gallery",
-      "qualificationTitle": "Curatorial Advisor",
+      "jobTitle": "Curatorial Advisor",
       "endDate": 2012,
       "isCurrent": false,
       "startDate": 2010,
@@ -150,7 +150,7 @@
     {
       "array_index": 17,
       "employer": "Various Museums Worldwide",
-      "qualificationTitle": "Guest Curator",
+      "jobTitle": "Guest Curator",
       "endDate": "NA",
       "isCurrent": true,
       "startDate": 1985,
@@ -400,7 +400,7 @@
       "category": "Fellowship",
       "organization": "American Council of Learned Societies",
       "description": "American Council of Learned Societies Fellowship",
-      "date": 1989
+      "date": "1989"
     },
     {
       "array_index": 8,
@@ -427,72 +427,72 @@
       "array_index": 11,
       "organization": "Ordre des Arts et des Lettres, France",
       "description": "Commandeur de l'Ordre des Arts et des Lettres",
-      "date": 2022
+      "date": "2022"
     },
     {
       "array_index": 12,
       "category": "Award",
       "organization": "College Art Association",
       "description": "Lifetime Achievement Award",
-      "date": 2021
+      "date": "2021"
     },
     {
       "array_index": 13,
       "organization": "Premio Salimbeni",
       "description": "Premio Salimbeni per la Storia dell'Arte",
-      "date": 2019
+      "date": "2019"
     },
     {
       "array_index": 14,
       "category": "Membership",
       "organization": "American Academy of Arts and Sciences",
-      "date": 2017
+      "date": "2017"
     },
     {
       "array_index": 15,
       "category": "Membership",
       "organization": "Accademia Nazionale dei Lincei",
-      "date": 2015
+      "date": "2015"
     },
     {
       "array_index": 16,
       "category": "Corresponding Membership",
       "organization": "British Academy",
-      "date": 2012
+      "date": "2012"
     },
     {
       "array_index": 17,
       "organization": "Accademia dei Lincei",
       "description": "Premio Pascoli",
-      "date": 2010
+      "date": "2010"
     },
     {
       "array_index": 18,
       "category": "Honorary Doctorate",
       "organization": "University of Edinburgh",
-      "date": 2009
+      "date": "2009"
     },
     {
       "array_index": 19,
       "organization": "Medaglia d'Oro ai Benemeriti della Cultura",
       "description": "Italian Republic",
-      "date": 2008
+      "date": "2008"
     },
     {
       "array_index": 20,
       "description": "Mitchell Prize for Art History",
-      "date": 2005
+      "date": "2005"
     },
     {
       "array_index": 21,
       "category": "Nomination",
       "organization": "Balzan Prize",
-      "date": 2003
+      "date": "2003"
     },
     {
       "array_index": 22,
       "description": "Premio Marzotto per la Cultura Europea",
-      "date": 1999
+      "date": "1999"
     },
     {
       "array_index": 23,
