@@ -1,6 +1,6 @@
 {
   "ids": "arXiv:2501.02189v6",
-  "title": "ASurvey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges",
+  "title": "A Survey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges",
   "venue": "arXiv",
   "publication_type": "Preprint",
   "authors": [
@@ -15,7 +15,7 @@
       "email": "wuxiyang@umd.edu"
     },
     {
-      "name": "HongyangDu",
+      "name": "Hongyang Du",
       "array_index": 2,
       "email": "hdu1@umd.edu"
     },
@@ -30,7 +30,7 @@
       "email": "nghiemh@umd.edu"
     },
     {
-      "name": "GuangyaoShi",
+      "name": "Guangyao Shi",
       "array_index": 5,
       "email": "shig@usc.edu"
     }

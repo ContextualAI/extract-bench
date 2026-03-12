@@ -3,7 +3,7 @@
     "administrative_agent": "JPMORGAN CHASE BANK, N.A.",
     "borrower": "INTERNATIONAL BUSINESS MACHINES CORPORATION and\r\nIBM CREDIT LLC",
     "lead_arranger": [
-      "JPMORGAN CHASE BANK. N.A., BNP PARIBAS SECURITIES CORP.,",
+      "JPMORGAN CHASE BANK, N.A., BNP PARIBAS SECURITIES CORP.,",
       "CITIBANK, N.A., and ROYAL BANK OF CANADA"
     ],
     "lenders": [
@@ -55,7 +55,7 @@
     "beneficial_ownership_certification_required": false,
     "borrowing_request": "Each Borrower may\r\nborrow under the Revolving Credit Commitments during the Revolving Credit\r\nCommitment Period on any Business Day; provided that such Borrower shall give the\r\nAdministrative Agent irrevocable notice (which notice must be received by the\r\nAdministrative Agent prior to (a) 11:00 A.M., New York City time, three Business Days\r\nprior to the requested Borrowing Date, if all or any part of the requested Revolving Credit\r\nLoans are to be initially Eurodollar Loans, (b) 11:00 A.M., New York City time, on the\r\nrequested Borrowing Date if the requested Revolving Credit Loans are to be initially ABR\r\nLoans or (c) 11:00 A.M. London time, three Business Days prior to the requested\r\nBorrowing Date, if all or any part of the requested Revolving Credit Loans are to be initially\r\nEURIBOR Loans), specifying (i) the amount to be borrowed, (ii) the requested Borrowing\r\nDate, (iii) whether the borrowing is to be of Eurodollar Loans, EURIBOR Loans, ABR\r\nLoans or a combination thereof and (iv) if the borrowing is to be entirely or partly of\r\nEurodollar Loans or EURIBOR Loans, the respective amounts of each such Loan and the\r\nrespective lengths of the initial Interest Periods therefor. Each borrowing under the\r\nRevolving Credit Commitments shall be in a minimum aggregate principal amount of the\r\nlesser of (i) $50,000,000 or a whole multiple of $5,000,000 in excess thereof (or\r\n€50,000,000 or a whole multiple of €5,000,000 in excess thereof in the case of EURIBOR\r\nLoans) and (ii) the aggregate amount of the then Available Revolving Credit\r\nCommitments.",
     "governing_law": "THE STATE OF NEW YORK",
-    "maturity_date": null,
+    "maturity_date": "2020-07-16",
     "use_of_proceeds": "The proceeds of all Revolving Credit Loans will be\nused by the Borrowers for general corporate purposes."
   }
 }

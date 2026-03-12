@@ -1,6 +1,6 @@
 {
   "meta": {
-    "company": "Nike",
+    "company": "NIKE, Inc.",
     "report_period": "FY2025 Q2",
     "report_period_end_date": "2024-11-30"
   },
@@ -1375,7 +1375,7 @@
         "value": 54
       },
       {
-        "data_period": "FY2025 Q2",
+        "data_period": "FY2024",
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",

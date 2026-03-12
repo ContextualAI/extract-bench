@@ -1,11 +1,11 @@
 {
   "title": "Handwritten Digit Recognition with a Back-Propagation Network",
   "ids": null,
-  "venue": null,
+  "venue": "Neural Information Processing Systems (NIPS 1989)",
   "publication_date": null,
   "authors": [
     {
-      "name": "Le Cun",
+      "name": "Y. Le Cun",
       "array_index": 0,
       "affiliation": "AT&T Bell Laboratories"
     },

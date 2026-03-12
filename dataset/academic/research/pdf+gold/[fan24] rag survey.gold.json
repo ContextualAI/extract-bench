@@ -1,6 +1,6 @@
 {
   "ids": "arXiv:2405.06211v3",
-  "title": "ASurvey on RAGMeetingLLMs: Towards Retrieval-Augmented Large Language Models",
+  "title": "A Survey on RAG Meeting LLMs: Towards Retrieval-Augmented Large Language Models",
   "venue": "arXiv",
   "publication_type": "Preprint",
   "authors": [
@@ -38,7 +38,7 @@
       "name": "Dawei Yin",
       "array_index": 5,
       "email": "yindawei@acm.org",
-      "affiliation": "The Hong Kong Polytechnic University, HK SAR"
+      "affiliation": "Baidu Inc, China"
     },
     {
       "name": "Tat-Seng Chua",
@@ -63,7 +63,7 @@
     "Prompting."
   ],
   "number_of_pages": 18,
-  "publication_date": "Fri Jun 30 2017 23:00:00 GMT+0100 (British Summer Time)",
+  "publication_date": "2024-06-18",
   "citations": [
     "Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. arXiv preprint arXiv:2303.08774 (2023).",
     "Sweta Agrawal, Chunting Zhou, Mike Lewis, Luke Zettlemoyer, and Marjan Ghazvininejad. 2023. In-context Examples Selection for Machine Translation. In ACL (Findings). Association for Computational Linguistics, 8857–8873.",
