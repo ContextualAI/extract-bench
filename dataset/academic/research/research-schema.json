@@ -11,12 +11,12 @@
         {"type": "string"},
         {"type": "null"}
       ],
-      "description": "The unique identifier for the paper. Example: '10.1000/xyz123' or 'arXiv:1234.5678'.",
+      "description": "The unique identifier for the paper, typically a DOI (e.g., '10.1000/xyz123') or arXiv ID (e.g., 'arXiv:1234.5678'). Extract exactly as printed in the document. Return null if no identifier is present.",
       "evaluation_config": "string_exact"
     },
     "title": {
       "type": "string",
-      "description": "The full title of the research paper.",
+      "description": "The full title of the research paper as it appears on the first page or header. Extract exactly as printed; do not abbreviate, rephrase, or translate.",
       "evaluation_config": "string_semantic"
     },
     "venue": {
@@ -24,7 +24,7 @@
         {"type": "string"},
         {"type": "null"}
       ],
-      "description": "Where the paper was published (e.g., 'NeurIPS 2024', 'Nature').",
+      "description": "Where the paper was published or presented, including the venue name and year if available (e.g., 'NeurIPS 2024', 'Nature', 'IEEE Transactions on Pattern Analysis and Machine Intelligence'). Use the full venue name as stated in the document; do not abbreviate unless the document itself uses an abbreviation. Return null if no venue is specified.",
       "evaluation_config": "string_semantic"
     },
     "authors": {
@@ -41,17 +41,19 @@
           },
           "name": {
             "type": "string",
-            "evaluation_config": "string_semantic"
+            "evaluation_config": "string_semantic",
+            "description": "Full name of the author as listed in the paper (e.g., 'John A. Smith', 'Yann LeCun'). Preserve the name format used in the document."
           },
           "email": {
             "type": "string",
             "format": "email",
-            "evaluation_config": "string_exact"
+            "evaluation_config": "string_exact",
+            "description": "Email address of the author, if provided in the paper. Extract exactly as printed."
           },
           "affiliation": {
             "type": "string",
             "nullable": true,
-            "description": "The affiliation of the author. Example: 'University of California, Berkeley' or 'Google'. If unknown, leave blank.",
+            "description": "Institutional affiliation of the author as stated in the paper (e.g., 'University of California, Berkeley', 'Google DeepMind'). If no affiliation is provided, leave blank. Do not infer affiliations from other sources.",
             "evaluation_config": "string_semantic"
           }
         }
@@ -61,7 +63,7 @@
     },
     "abstract": {
       "type": "string",
-      "description": "The summary or abstract of the paper.",
+      "description": "The full abstract or summary of the paper as it appears in the document. Extract the complete text verbatim from the abstract section. Do not truncate, paraphrase, or summarise.",
       "evaluation_config": "string_semantic"
     },
     "keywords": {
@@ -70,7 +72,7 @@
         "type": "string",
         "evaluation_config": "string_semantic"
       },
-      "description": "List of topics or tags (e.g., 'Machine Learning', 'Genomics').",
+      "description": "Author-provided keywords or topics as listed in the paper's keywords section (e.g., 'Machine Learning', 'Genomics', 'Transformer'). Extract only keywords explicitly stated by the authors; do not infer or generate additional keywords.",
       "evaluation_config": "array_llm"
     },
     "citations": {
@@ -88,22 +90,25 @@
           },
           "ids": {
             "type": "string",
-            "description": "The unique identifier for the paper. Example: '10.1000/xyz123' or 'arXiv:1234.5678'.",
+            "description": "The unique identifier for the cited work, typically a DOI (e.g., '10.1000/xyz123') or arXiv ID (e.g., 'arXiv:1234.5678'). Extract if available in the reference entry.",
             "evaluation_config": "string_exact"
           },
           "year": {
             "type": "integer",
             "maximum": 2100,
             "minimum": 1000,
-            "evaluation_config": "integer_exact"
+            "evaluation_config": "integer_exact",
+            "description": "Publication year of the cited work as stated in the reference entry. Return as an integer."
           },
           "title": {
             "type": "string",
-            "evaluation_config": "string_semantic"
+            "evaluation_config": "string_semantic",
+            "description": "Title of the cited work as it appears in the references section. Extract exactly as printed."
           },
           "venue": {
             "type": "string",
-            "evaluation_config": "string_semantic"
+            "evaluation_config": "string_semantic",
+            "description": "Publication venue of the cited work (e.g., journal name, conference name) as stated in the reference entry."
           },
           "authors": {
             "type": "array",
@@ -116,7 +121,8 @@
                 },
                 "name": {
                   "type": "string",
-                  "evaluation_config": "string_semantic"
+                  "evaluation_config": "string_semantic",
+                  "description": "Full name of the cited author as listed in the reference entry."
                 }
               }
             },
@@ -124,14 +130,14 @@
           }
         }
       },
-      "description": "List of works cited by this paper.",
+      "description": "List of works cited in the references or bibliography section of this paper. Extract all cited works with available metadata. Preserve the order as they appear in the references section.",
       "evaluation_config": "array_llm"
     },
     "number_of_pages": {
       "type": "integer",
       "maximum": 1000,
       "minimum": 1,
-      "description": "The number of pages in the paper.",
+      "description": "Total number of pages in the paper, counting all pages in the PDF including references and appendices.",
       "evaluation_config": "integer_exact"
     },
     "publication_date": {
@@ -139,7 +145,7 @@
         {"type": "string"},
         {"type": "null"}
       ],
-      "description": "Date of publication in YYYY-MM-DD format or YYYY-MM or YYYY format.",
+      "description": "Date of publication. Use the most precise format available: YYYY-MM-DD if a full date is stated, YYYY-MM if only month and year are available, or YYYY if only the year is known. Extract from the document; do not infer dates. Return null if no publication date is provided.",
       "evaluation_config": "string_semantic"
     },
     "publication_type": {
@@ -162,7 +168,7 @@
         "Software"
       ],
       "type": "string",
-      "description": "The type of publication (e.g., 'Conference Paper', 'Journal Article', 'Technical Report', 'Blog Post', 'Preprint').",
+      "description": "The type of publication, selected from the allowed enum values. Determine based on the venue, format, and context clues in the document (e.g., papers at NeurIPS/ICML are 'Conference Paper', papers in Nature/IEEE Transactions are 'Journal Article', papers on arXiv without a venue are 'Preprint').",
       "evaluation_config": "string_exact"
     }
   }
