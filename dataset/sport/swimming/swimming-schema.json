@@ -3,11 +3,13 @@
   "properties": {
     "age_groups": {
       "type": "array",
+      "description": "Result groupings by age category for a single event. Used when the document contains results for only one event. Each entry represents one age group with its ranked results.",
       "items": {
         "type": "object",
         "properties": {
           "results": {
             "type": "array",
+            "description": "Ranked list of individual results within this age group, ordered by finishing position. Extract all results as presented in the document.",
             "items": {
               "type": "object",
               "properties": {
@@ -20,11 +22,13 @@
                       "type": "string"
                     }
                   ],
-                  "evaluation_config": "string_semantic"
+                  "evaluation_config": "string_semantic",
+                  "description": "Finishing position of the athlete. Use an integer for numeric ranks (e.g., 1, 2, 3). Use a string for non-numeric outcomes such as 'DQ' (disqualified), 'DNS' (did not start), or 'DNF' (did not finish)."
                 },
                 "time": {
                   "type": "string",
-                  "evaluation_config": "string_exact"
+                  "evaluation_config": "string_exact",
+                  "description": "Recorded finish time exactly as printed in the results document (e.g., '1:23.45', '25.67', '2:05.89'). Preserve the original formatting including separators."
                 },
                 "records": {
                   "anyOf": [
@@ -45,26 +49,32 @@
                       "type": "null"
                     }
                   ],
-                  "evaluation_config": "array_llm"
+                  "evaluation_config": "array_llm",
+                  "description": "Record designations achieved by this result, if any. WR = World Record, CR = Championship Record, NR = National Record, AR = Americas Record, ER = European Record. A single result may break multiple records simultaneously. Return null if no records were set."
                 },
                 "athlete_details": {
                   "type": "object",
+                  "description": "Identifying information about the athlete who achieved this result.",
                   "properties": {
                     "team": {
                       "type": "string",
-                      "evaluation_config": "string_fuzzy"
+                      "evaluation_config": "string_fuzzy",
+                      "description": "Team, club, or organisation the athlete represents, as printed in the results (e.g., 'Swim Club ABC', 'USC Trojans'). Extract exactly as stated."
                     },
                     "athlete": {
                       "type": "string",
-                      "evaluation_config": "string_fuzzy"
+                      "evaluation_config": "string_fuzzy",
+                      "description": "Full name of the swimmer as printed in the results document. Preserve the name format used (e.g., 'LASTNAME, Firstname' or 'Firstname Lastname')."
                     },
                     "country": {
                       "type": "string",
-                      "evaluation_config": "string_semantic"
+                      "evaluation_config": "string_semantic",
+                      "description": "Country or nationality of the athlete, typically shown as a three-letter country code (e.g., 'USA', 'GBR', 'AUS') or full country name. Extract as printed in the document."
                     },
                     "year_birth": {
                       "type": "integer",
-                      "evaluation_config": "integer_exact"
+                      "evaluation_config": "integer_exact",
+                      "description": "Birth year of the athlete as listed in the results document. Return as a four-digit integer (e.g., 2001)."
                     }
                   }
                 }
@@ -74,7 +84,8 @@
           },
           "age_group": {
             "type": "string",
-            "evaluation_config": "string_exact"
+            "evaluation_config": "string_exact",
+            "description": "Age group classification label as printed in the results (e.g., 'Open', 'Junior', '15-16', '13-14', 'Senior'). Extract exactly as stated in the document."
           }
         }
       },
@@ -82,24 +93,150 @@
     },
     "championship": {
       "type": "string",
-      "evaluation_config": "string_fuzzy"
+      "evaluation_config": "string_fuzzy",
+      "description": "Full name of the swimming championship, competition, or meet as stated in the document (e.g., '2024 World Aquatics Championships', 'NCAA Division I Swimming & Diving Championships'). Extract as printed."
     },
     "event_details": {
       "type": "object",
+      "description": "Details identifying the specific swimming event. Used when the document contains results for a single event.",
       "properties": {
         "sex": {
           "type": "string",
-          "evaluation_config": "string_case_insensitive"
+          "evaluation_config": "string_case_insensitive",
+          "description": "Gender category of the event (e.g., 'Men', 'Women', 'Mixed', 'Boys', 'Girls'). Extract as stated in the document."
         },
         "length": {
           "type": "string",
-          "evaluation_config": "string_exact"
+          "evaluation_config": "string_exact",
+          "description": "Race distance and stroke type (e.g., '100m Freestyle', '200m Butterfly', '4x100m Medley Relay'). Extract exactly as printed in the document."
         },
         "category": {
           "type": "string",
-          "evaluation_config": "string_exact"
+          "evaluation_config": "string_exact",
+          "description": "Event category or round (e.g., 'Final', 'Heats', 'Semi-Final', 'Prelim', 'Timed Final'). Extract as stated in the document."
         }
       }
+    },
+    "events": {
+      "type": "array",
+      "description": "Array of event entries when the document contains results for multiple events. Each entry includes its own event_details and age_groups. Use this structure instead of the top-level event_details and age_groups when multiple events are present.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event_details": {
+            "type": "object",
+            "description": "Details identifying this specific swimming event within a multi-event document.",
+            "properties": {
+              "sex": {
+                "type": "string",
+                "evaluation_config": "string_case_insensitive",
+                "description": "Gender category of the event (e.g., 'Men', 'Women', 'Mixed', 'Boys', 'Girls'). Extract as stated in the document."
+              },
+              "length": {
+                "type": "string",
+                "evaluation_config": "string_exact",
+                "description": "Race distance and stroke type (e.g., '100m Freestyle', '200m Butterfly', '4x100m Medley Relay'). Extract exactly as printed in the document."
+              },
+              "category": {
+                "type": "string",
+                "evaluation_config": "string_exact",
+                "description": "Event category or round (e.g., 'Final', 'Heats', 'Semi-Final', 'Prelim', 'Timed Final'). Extract as stated in the document."
+              }
+            }
+          },
+          "age_groups": {
+            "type": "array",
+            "description": "Result groupings by age category for this event. Each entry represents one age group with its ranked results.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "results": {
+                  "type": "array",
+                  "description": "Ranked list of individual results within this age group, ordered by finishing position. Extract all results as presented in the document.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rank": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "evaluation_config": "string_semantic",
+                        "description": "Finishing position of the athlete. Use an integer for numeric ranks (e.g., 1, 2, 3). Use a string for non-numeric outcomes such as 'DQ' (disqualified), 'DNS' (did not start), or 'DNF' (did not finish)."
+                      },
+                      "time": {
+                        "type": "string",
+                        "evaluation_config": "string_exact",
+                        "description": "Recorded finish time exactly as printed in the results document (e.g., '1:23.45', '25.67', '2:05.89'). Preserve the original formatting including separators."
+                      },
+                      "records": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "enum": [
+                                "WR",
+                                "CR",
+                                "NR",
+                                "AR",
+                                "ER"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "evaluation_config": "array_llm",
+                        "description": "Record designations achieved by this result, if any. WR = World Record, CR = Championship Record, NR = National Record, AR = Americas Record, ER = European Record. A single result may break multiple records simultaneously. Return null if no records were set."
+                      },
+                      "athlete_details": {
+                        "type": "object",
+                        "description": "Identifying information about the athlete who achieved this result.",
+                        "properties": {
+                          "team": {
+                            "type": "string",
+                            "evaluation_config": "string_fuzzy",
+                            "description": "Team, club, or organisation the athlete represents, as printed in the results (e.g., 'Swim Club ABC', 'USC Trojans'). Extract exactly as stated."
+                          },
+                          "athlete": {
+                            "type": "string",
+                            "evaluation_config": "string_fuzzy",
+                            "description": "Full name of the swimmer as printed in the results document. Preserve the name format used (e.g., 'LASTNAME, Firstname' or 'Firstname Lastname')."
+                          },
+                          "country": {
+                            "type": "string",
+                            "evaluation_config": "string_semantic",
+                            "description": "Country or nationality of the athlete, typically shown as a three-letter country code (e.g., 'USA', 'GBR', 'AUS') or full country name. Extract as printed in the document."
+                          },
+                          "year_birth": {
+                            "type": "integer",
+                            "evaluation_config": "integer_exact",
+                            "description": "Birth year of the athlete as listed in the results document. Return as a four-digit integer (e.g., 2001)."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "evaluation_config": "array_llm"
+                },
+                "age_group": {
+                  "type": "string",
+                  "evaluation_config": "string_exact",
+                  "description": "Age group classification label as printed in the results (e.g., 'Open', 'Junior', '15-16', '13-14', 'Senior'). Extract exactly as stated in the document."
+                }
+              }
+            },
+            "evaluation_config": "array_llm"
+          }
+        }
+      },
+      "evaluation_config": "array_llm"
     }
   }
 }

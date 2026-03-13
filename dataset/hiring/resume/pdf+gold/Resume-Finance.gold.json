@@ -1,8 +1,10 @@
 {
   "personalInfo": {
     "fullName": "Sarah Mitchell",
-    "emails": "sarah.mitchell@examplemail.co.uk",
-    "phones": "123456789",
+    "contact": {
+      "emails": ["sarah.mitchell@examplemail.co.uk"],
+      "phones": ["123456789"]
+    },
     "personalStatement": "Results-driven finance professional with 12+ years of experience in financial analysis, risk management, and strategic planning."
   },
   "certificationsAndAwards": [],
@@ -15,7 +17,7 @@
       "array_index": 0,
       "employer": "Silverstone Investment Group",
       "jobTitle": "Senior Financial Analyst",
-      "startDate": "2019-02-28T23:00:00.000Z",
+      "startDate": "March 2019",
       "endDate": null,
       "isCurrent": true,
       "description": "Led portfolio analysis for \u00a3250M+ investment fund, improving ROI by 18%; Developed comprehensive risk assessment models for emerging market opportunities; Managed team of 5 analysts in quarterly reporting and forecasting initiatives"
@@ -24,17 +26,17 @@
       "array_index": 1,
       "employer": "Meridian Manufacturing Holdings",
       "jobTitle": "Financial Controller",
-      "startDate": "2015-05-31T22:00:00.000Z",
-      "endDate": "2019-01-31T23:00:00.000Z",
+      "startDate": "June 2015",
+      "endDate": "February 2019",
       "isCurrent": false,
-      "description": "Oversaw annual budget of \u00a345M and monthly financial reporting to board of directors; Implemented cost reduction strategies decreasing operational expenses by 12%; Coordinated external audits and ensured compliance with UK GAAP standards"
+      "description": "Oversaw annual budget of \u00a345M and monthly financial reporting to board of directors; Implemented cost reduction strategies that decreased operational expenses by 12%; Coordinated external audits and ensured compliance with UK GAAP standards"
     },
     {
       "array_index": 2,
       "employer": "Pinnacle Advisory Partners",
       "jobTitle": "Junior Analyst",
-      "startDate": "2012-08-31T22:00:00.000Z",
-      "endDate": "2015-04-30T22:00:00.000Z",
+      "startDate": "September 2012",
+      "endDate": "May 2015",
       "isCurrent": false,
       "description": "Conducted financial due diligence for M&A transactions valued up to \u00a3100M; Prepared detailed valuation reports and investment memorandums; Assisted in development of financial models for client presentations"
     }
@@ -72,17 +74,17 @@
       "array_index": 0,
       "institution": "Riverside School of Business",
       "qualificationTitle": "MSc - Corporate Finance",
-      "startDate": "2010-08-31T22:00:00.000Z",
-      "endDate": "2011-06-30T22:00:00.000Z",
-      "description": "Merit: 72%"
+      "startDate": "September 2010",
+      "endDate": "July 2011",
+      "description": "Distinction (Merit: 72%)"
     },
     {
       "array_index": 1,
       "institution": "Harborview University",
       "qualificationTitle": "BSc - Economics and Accounting",
-      "startDate": "2006-08-31T22:00:00.000Z",
-      "endDate": "2010-05-31T22:00:00.000Z",
-      "description": "3.9/4.0 "
+      "startDate": "September 2006",
+      "endDate": "June 2010",
+      "description": "First Class Honours (GPA: 3.9/4.0)"
     }
   ]
 }

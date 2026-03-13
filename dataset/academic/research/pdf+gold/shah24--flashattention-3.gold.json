@@ -46,7 +46,7 @@
     "NA"
   ],
   "number_of_pages": 22,
-  "publication_date": "July 16, 2024",
+  "publication_date": "2024-07-16",
   "citations": [
     "Ahmad Abdelfattah, Azzam Haidar, Stanimire Tomov, and Jack Dongarra. Performance, design, and autotuning of batched gemm for gpus. ISBN 978-3-319-41320-4. doi: 10.1007/978-3-319-41321-1_2.",
     "AI21. Introducing jamba: Ai21's groundbreaking ssm-transformer model. AI21 blog, 2024.",

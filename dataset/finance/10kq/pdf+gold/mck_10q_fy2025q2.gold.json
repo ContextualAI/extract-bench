@@ -2,7 +2,7 @@
   "meta": {
     "company": "McKesson Corporation",
     "report_period": "FY2025 Q2",
-    "report_period_end_date": "2024-08-02"
+    "report_period_end_date": "2024-09-30"
   },
   "income_statement": {
     "basic_eps": [
@@ -1622,7 +1622,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 0
       },
@@ -1631,7 +1631,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 1
       },
@@ -1640,7 +1640,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 1
       }
@@ -1651,7 +1651,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 3
       },
@@ -1660,7 +1660,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 4
       },
@@ -1669,7 +1669,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 4
       }

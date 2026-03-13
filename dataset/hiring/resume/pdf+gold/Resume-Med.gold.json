@@ -1,9 +1,11 @@
 {
   "personalInfo": {
     "fullName": "Dr. Amanda Rodriguez, MD",
-    "emails": "a.rodriguez@hospexample.org",
-    "phones": "(617) 555-0276",
-    "personalStatement": "Board-certified cardiologist with 16+ years of experience in interventional cardiology, clinical research, and patient care"
+    "contact": {
+      "emails": ["a.rodriguez@hospexample.org"],
+      "phones": ["(617) 555-0276"]
+    },
+    "personalStatement": "Board-certified cardiologist with 16+ years of experience in interventional cardiology, clinical research, and patient care."
   },
   "media": [],
   "socialLinks": [],
@@ -12,17 +14,17 @@
       "array_index": 0,
       "employer": "Westfield Heart Institute",
       "jobTitle": "Director of Interventional Cardiology",
-      "startDate": "2019-06-30T22:00:00.000Z",
+      "startDate": "July 2019",
       "endDate": null,
       "isCurrent": true,
       "description": "Oversee cardiac catheterization laboratory performing 800+ procedures annually; Lead multidisciplinary team of 12 physicians, nurses, and technicians; Perform complex interventional procedures including angioplasty, stent placement, and TAVR; Serve on hospital quality improvement committee reducing post-procedure complications by 23%"
     },
     {
       "array_index": 1,
-      "employer": "Riverstone Medical Center",
+      "employer": "Riverstone Medical Center Cardiology Department",
       "jobTitle": "Attending Physician",
-      "startDate": "2014-07-31T22:00:00.000Z",
-      "endDate": "2019-05-31T22:00:00.000Z",
+      "startDate": "August 2014",
+      "endDate": "June 2019",
       "isCurrent": false,
       "description": "Provided comprehensive cardiovascular care to 2,000+ patients annually; Performed diagnostic procedures including echocardiograms and stress tests; Supervised cardiology fellows and medical residents during clinical rotations; Participated in on-call rotation for acute cardiac emergencies"
     },
@@ -30,8 +32,8 @@
       "array_index": 2,
       "employer": "Northbridge University Medical Center",
       "jobTitle": "Cardiology Fellow",
-      "startDate": "2011-06-30T22:00:00.000Z",
-      "endDate": "2014-05-31T22:00:00.000Z",
+      "startDate": "July 2011",
+      "endDate": "June 2014",
       "isCurrent": false,
       "description": "Completed advanced training in interventional cardiology and cardiac imaging; Managed inpatient cardiology service and intensive care unit; Participated in multi-center clinical trial for novel anticoagulation therapy; Published 8 peer-reviewed articles in leading cardiology journals"
     }
@@ -44,40 +46,40 @@
     "Team leadership and mentoring"
   ],
   "languages": [
-    "English",
-    "Spanish",
-    "Portuguese"
+    "English (Native)",
+    "Spanish (Native)",
+    "Portuguese (Professional working proficiency)"
   ],
   "education": [
     {
       "array_index": 0,
       "institution": "Clearwater Medical Institute",
       "qualificationTitle": "Fellowship \u2013 Interventional Cardiology",
-      "startDate": "2011-06-30T22:00:00.000Z",
-      "endDate": "2014-05-31T22:00:00.000Z"
+      "startDate": "July 2011",
+      "endDate": "June 2014"
     },
     {
       "array_index": 1,
       "institution": "Pinewood General Hospital",
       "qualificationTitle": "Residency \u2013 Internal Medicine",
-      "startDate": "2008-06-30T22:00:00.000Z",
-      "endDate": "2011-05-31T22:00:00.000Z",
+      "startDate": "July 2008",
+      "endDate": "June 2011",
       "description": "Chief Resident (2010-2011)"
     },
     {
       "array_index": 2,
       "institution": "Bayshore Medical College",
-      "qualificationTitle": "Doctor of Medicine (MD)  ",
-      "startDate": "2004-07-31T22:00:00.000Z",
-      "endDate": "2008-04-30T22:00:00.000Z",
+      "qualificationTitle": "Doctor of Medicine (MD)",
+      "startDate": "August 2004",
+      "endDate": "May 2008",
       "description": "Honor Society for Medical Excellence"
     },
     {
       "array_index": 3,
       "institution": "Springdale University",
-      "qualificationTitle": "BS \u2013 Biology ",
-      "startDate": "2000-08-31T22:00:00.000Z",
-      "endDate": "2004-04-30T22:00:00.000Z",
+      "qualificationTitle": "BS \u2013 Biology",
+      "startDate": "September 2000",
+      "endDate": "May 2004",
       "description": "Summa Cum Laude (GPA: 3.98/4.0)"
     }
   ],
@@ -87,14 +89,14 @@
       "category": "Board Certifications",
       "organization": "National Board of Internal Medicine",
       "description": "Cardiology",
-      "date": 2011
+      "date": "2011"
     },
     {
       "array_index": 1,
       "category": "Board Certifications",
       "organization": "National Board of Internal Medicine",
       "description": "Interventional Cardiology",
-      "date": 2014
+      "date": "2014"
     },
     {
       "array_index": 2,
@@ -107,14 +109,14 @@
       "authors": "Rodriguez A, et al.",
       "title": "Outcomes of TAVR in High-Risk Patients",
       "publisher": "Journal of Cardiology",
-      "year": 2023
+      "year": "2023"
     },
     {
       "array_index": 1,
       "authors": "Rodriguez A, et al.",
       "title": "Novel Biomarkers in Heart Failure",
       "publisher": "Cardiovascular Medicine",
-      "year": 2021
+      "year": "2021"
     }
   ],
   "other": [
