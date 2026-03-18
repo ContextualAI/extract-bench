@@ -18,6 +18,7 @@ from .metrics.string_metrics import (
     ExactStringMatchMetric,
     NormalizedLevenshteinSimilarityMetric,
     StringSemanticMetric,
+    UrlNormalizedStringMatchMetric,
 )
 
 MetricFactory = Callable[[], BaseMetric]
@@ -103,6 +104,7 @@ def _register_default_metrics(registry: MetricRegistry) -> None:
     default_metrics = [
         ExactStringMatchMetric,
         CaseInsensitiveStringMatchMetric,
+        UrlNormalizedStringMatchMetric,
         NormalizedLevenshteinSimilarityMetric,
         StringSemanticMetric,
         ExactNumberMatchMetric,

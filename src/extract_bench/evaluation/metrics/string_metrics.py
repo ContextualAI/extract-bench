@@ -1,8 +1,10 @@
 """String evaluation metrics."""
 
+import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from typing import Any
+from urllib.parse import urlparse
 
 from ..evaluation_config import MetricConfig
 from .base_metric import BaseMetric, MetricContext, MetricResult
@@ -108,6 +110,68 @@ class CaseInsensitiveStringMatchMetric(PolicyAwareMetric, BaseMetric):
                 "extracted": extracted_str,
                 "gold_normalized": normalized_gold,
                 "extracted_normalized": normalized_extracted,
+            },
+        )
+
+
+def _normalize_url(url: str) -> str:
+    """Normalize a URL for comparison by stripping protocol, www, trailing slashes, and fragments."""
+    s = url.strip().lower()
+    # Strip protocol
+    s = re.sub(r"^https?://", "", s)
+    # Strip www.
+    s = re.sub(r"^www\.", "", s)
+    # Strip trailing slashes
+    s = s.rstrip("/")
+    # Strip fragment
+    s = s.split("#")[0]
+    return s
+
+
+@dataclass(frozen=True, slots=True)
+class UrlNormalizedStringMatchMetric(PolicyAwareMetric, BaseMetric):
+    metric_id: str = "string_url"
+    prompt_descriptor = MetricPromptDescriptor(
+        metric_id="string_url",
+        summary="URL-normalized string equality (strips protocol, www, trailing slash).",
+        pass_rule="pass iff normalize_url(gold) == normalize_url(predicted)",
+        score_rule="1.0 if pass else 0.0",
+    )
+
+    async def _evaluate_values(
+        self,
+        *,
+        node: MetricContext,
+        gold: Any,
+        extracted: Any,
+        config: MetricConfig | None,
+    ) -> MetricResult:
+        _, gold_str = _normalize_optional_string(gold)
+        _, extracted_str = _normalize_optional_string(extracted)
+
+        if gold_str is None or extracted_str is None:
+            passed = gold_str is extracted_str
+            score = 1.0 if passed else 0.0
+            return MetricResult(
+                metric_id=self.metric_id,
+                score=score,
+                passed=passed,
+                details={"gold": gold, "extracted": extracted},
+            )
+
+        gold_normalized = _normalize_url(gold_str)
+        extracted_normalized = _normalize_url(extracted_str)
+        passed = gold_normalized == extracted_normalized
+        score = 1.0 if passed else 0.0
+        return MetricResult(
+            metric_id=self.metric_id,
+            score=score,
+            passed=passed,
+            details={
+                "gold": gold_str,
+                "extracted": extracted_str,
+                "gold_normalized": gold_normalized,
+                "extracted_normalized": extracted_normalized,
             },
         )
 

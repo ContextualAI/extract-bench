@@ -2,7 +2,7 @@
 
 from typing import Any, Dict
 
-from ..infra.nodes import Schema
+from ..infra.nodes import Schema, StringSchema
 from .evaluation_config import EvaluationConfig
 from .presets import (
     ARRAY_DEFAULT_PRESET,
@@ -15,6 +15,29 @@ from .presets import (
     get_preset_configs,
 )
 
+# Format-based preset overrides: when a string field has one of these formats
+# and uses `string_exact`, automatically upgrade to a format-aware metric.
+_FORMAT_PRESET_OVERRIDES: Dict[str, str] = {
+    "uri": "string_url",
+    "url": "string_url",
+    "iri": "string_url",
+}
+
+
+def _apply_format_override(schema: Schema, config: EvaluationConfig) -> EvaluationConfig:
+    """Upgrade string_exact to a format-aware metric when the schema declares a known format."""
+    if not isinstance(schema, StringSchema) or not schema.format:
+        return config
+    override_preset = _FORMAT_PRESET_OVERRIDES.get(schema.format)
+    if override_preset is None:
+        return config
+    if (
+        len(config.metrics) == 1
+        and config.metrics[0].metric_id == "string_exact"
+    ):
+        return get_preset_config(override_preset)
+    return config
+
 
 def get_evaluation_config(schema: Schema) -> EvaluationConfig:
     """Get evaluation config for a schema node.
@@ -24,11 +47,13 @@ def get_evaluation_config(schema: Schema) -> EvaluationConfig:
     """
     if schema.evaluation_config is not None:
         if isinstance(schema.evaluation_config, str):
-            return get_preset_config(schema.evaluation_config)
+            config = get_preset_config(schema.evaluation_config)
+            return _apply_format_override(schema, config)
 
         if isinstance(schema.evaluation_config, dict):
             try:
-                return EvaluationConfig.model_validate(schema.evaluation_config)
+                config = EvaluationConfig.model_validate(schema.evaluation_config)
+                return _apply_format_override(schema, config)
             except Exception as e:
                 raise ValueError(
                     f"Invalid evaluation_config for schema node: {e}. "

@@ -8,6 +8,7 @@ VALID_PRESETS = {
     "string_exact": "Exact string match (case-sensitive)",
     "string_fuzzy": "Levenshtein distance with threshold",
     "string_case_insensitive": "Case-insensitive match",
+    "string_url": "URL-normalized match (strips protocol, www, trailing slash)",
     "string_llm": "LLM-based semantic similarity",
     "string_semantic": "LLM-based semantic string evaluation",
     "number_exact": "Exact numeric match",
@@ -44,6 +45,9 @@ def _build_preset_configs() -> Dict[str, EvaluationConfig]:
         ),
         "string_case_insensitive": EvaluationConfig(
             metrics=[MetricConfig(metric_id="string_case_insensitive")]
+        ),
+        "string_url": EvaluationConfig(
+            metrics=[MetricConfig(metric_id="string_url")]
         ),
         "string_llm": EvaluationConfig(metrics=[MetricConfig(metric_id="string_llm")]),
         "string_semantic": EvaluationConfig(

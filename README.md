@@ -232,12 +232,15 @@ Use `evaluate_async()` for better performance with LLM-based metrics.
 |          | `string_case_insensitive` | Case-insensitive match                  |
 |          | `string_fuzzy`            | Levenshtein similarity                  |
 |          | `string_semantic`         | LLM-based semantic comparison (default) |
+|          | `string_url`              | URL-normalized match (strips protocol, www, trailing slash) |
 | Number   | `number_exact`            | Exact numeric equality                  |
 |          | `number_tolerance`        | Match within tolerance (default)        |
 |          | `integer_exact`           | Exact integer equality                  |
 | Boolean  | `boolean_exact`           | Exact boolean equality                  |
 | Array    | `array_llm`               | LLM-based array comparison              |
 | General  | `string_llm`              | LLM judge for any comparison            |
+
+> **Automatic format inference:** Fields with `"format": "uri"` and `"evaluation_config": "string_exact"` are automatically evaluated with `string_url` instead, so `http://example.com` and `example.com` are treated as equal. You don't need to set this manually.
 
 ### Evaluation Presets
 
@@ -267,6 +270,7 @@ schema = {
 | `string_fuzzy`            | Levenshtein similarity (case-insensitive by default) |
 | `string_case_insensitive` | Case-insensitive match                               |
 | `string_semantic`         | LLM-based semantic similarity (default for strings)  |
+| `string_url`              | URL-normalized match (auto-applied for `format: "uri"` fields) |
 | `number_exact`            | Exact numeric equality                               |
 | `number_tolerance`        | Match within tolerance (default for numbers)         |
 | `integer_exact`           | Exact integer equality (default for integers)        |
