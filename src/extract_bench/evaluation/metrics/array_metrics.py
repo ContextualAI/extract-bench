@@ -33,9 +33,9 @@ class ArrayLlmJudgeMetric(LlmJudgeMetric):
         "type": "object",
         "properties": {
             "reasoning": {"type": "string"},
-            "matched_items": {"type": "array", "items": {"type": "string"}},
-            "missed_gold_items": {"type": "array", "items": {"type": "string"}},
-            "spurious_pred_items": {"type": "array", "items": {"type": "string"}},
+            "matched_items": {"type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "object"}]}},
+            "missed_gold_items": {"type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "object"}]}},
+            "spurious_pred_items": {"type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "object"}]}},
             "matches_summary": {
                 "type": "object",
                 "properties": {

@@ -2,7 +2,7 @@
 
 from typing import Any, Dict
 
-from ..infra.nodes import Schema, StringSchema
+from ..infra.nodes import AnyOfSchema, NullSchema, Schema, StringSchema
 from .evaluation_config import EvaluationConfig
 from .presets import (
     ARRAY_DEFAULT_PRESET,
@@ -65,6 +65,43 @@ def get_evaluation_config(schema: Schema) -> EvaluationConfig:
     return get_default_evaluation_config(schema)
 
 
+def _infer_anyof_evaluation_config(schema: AnyOfSchema) -> EvaluationConfig | None:
+    """Infer evaluation config for an anyOf node from its children.
+
+    If all non-null children share the same evaluation_config, use it for
+    the anyOf node itself. This handles cases like `skills` which is
+    anyOf[array, object] where both branches use array_llm.
+    """
+    non_null_children = [
+        child for child in schema.any_of if not isinstance(child, NullSchema)
+    ]
+    if not non_null_children:
+        return None
+
+    configs = []
+    for child in non_null_children:
+        raw = child.evaluation_config
+        if raw is None:
+            continue
+        if isinstance(raw, str):
+            configs.append(raw)
+        elif isinstance(raw, EvaluationConfig) and len(raw.metrics) == 1:
+            configs.append(raw.metrics[0].metric_id)
+        elif isinstance(raw, dict):
+            metrics = raw.get("metrics", [])
+            if len(metrics) == 1:
+                configs.append(metrics[0].get("metric_id", ""))
+
+    if not configs:
+        return None
+
+    # All children agree on the same metric — use it
+    if len(set(configs)) == 1:
+        return get_preset_config(configs[0])
+
+    return None
+
+
 def get_default_evaluation_config(schema: Schema) -> EvaluationConfig:
     """Get type-specific default evaluation config for a schema."""
     schema_type = schema.get_type()
@@ -86,6 +123,10 @@ def get_default_evaluation_config(schema: Schema) -> EvaluationConfig:
         case "null":
             return preset_configs[SKIP_PRESET]
         case _:
+            if isinstance(schema, AnyOfSchema):
+                inferred = _infer_anyof_evaluation_config(schema)
+                if inferred is not None:
+                    return inferred
             return preset_configs[SKIP_PRESET]
 
 

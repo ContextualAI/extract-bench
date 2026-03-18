@@ -240,7 +240,9 @@ Use `evaluate_async()` for better performance with LLM-based metrics.
 | Array    | `array_llm`               | LLM-based array comparison              |
 | General  | `string_llm`              | LLM judge for any comparison            |
 
-> **Automatic format inference:** Fields with `"format": "uri"` and `"evaluation_config": "string_exact"` are automatically evaluated with `string_url` instead, so `http://example.com` and `example.com` are treated as equal. You don't need to set this manually.
+> **Automatic inference:**
+> - Fields with `"format": "uri"` and `"evaluation_config": "string_exact"` are automatically evaluated with `string_url` instead, so `http://example.com` and `example.com` are treated as equal.
+> - `anyOf` nodes without an explicit `evaluation_config` inherit the config from their children when all non-null branches agree on the same metric. For example, `anyOf: [{type: array, evaluation_config: "array_llm"}, {type: object, ...}]` will automatically use `array_llm` on the anyOf node.
 
 ### Evaluation Presets
 

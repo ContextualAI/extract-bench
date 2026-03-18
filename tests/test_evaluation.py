@@ -487,6 +487,87 @@ class TestUrlNormalizedStringMatch:
         assert "string_url" not in metric_results
 
 
+class TestAnyOfEvaluationInference:
+    """Test that anyOf nodes infer evaluation config from children."""
+
+    def test_anyof_infers_config_from_uniform_children(self):
+        """anyOf where all non-null children share the same config should be evaluated."""
+        schema = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "anyOf": [
+                        {"type": "string", "evaluation_config": "string_exact"},
+                        {"type": "integer", "evaluation_config": "string_exact"},
+                    ]
+                }
+            },
+        }
+        evaluator = StructuredEvaluator(StructuredEvaluatorConfig(metrics=[]))
+        result = evaluator.evaluate(schema, {"value": "hello"}, {"value": "hello"})
+        assert "$.properties.value" in result["results"]
+        metric = result["results"]["$.properties.value"]["string_exact"]
+        assert metric.passed is True
+        assert metric.score == 1.0
+
+    def test_anyof_infers_config_ignoring_null_branch(self):
+        """Nullable anyOf should infer from non-null child."""
+        schema = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "anyOf": [
+                        {"type": "string", "evaluation_config": "string_exact"},
+                        {"type": "null"},
+                    ]
+                }
+            },
+        }
+        evaluator = StructuredEvaluator(StructuredEvaluatorConfig(metrics=[]))
+        result = evaluator.evaluate(schema, {"value": "test"}, {"value": "test"})
+        assert "$.properties.value" in result["results"]
+        metric = result["results"]["$.properties.value"]["string_exact"]
+        assert metric.passed is True
+
+    def test_anyof_no_inference_when_children_disagree(self):
+        """anyOf with different configs on children should not infer (skip)."""
+        schema = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "anyOf": [
+                        {"type": "string", "evaluation_config": "string_exact"},
+                        {"type": "integer", "evaluation_config": "integer_exact"},
+                    ]
+                }
+            },
+        }
+        evaluator = StructuredEvaluator(StructuredEvaluatorConfig(metrics=[]))
+        result = evaluator.evaluate(schema, {"value": "test"}, {"value": "test"})
+        # anyOf node should be skipped since children disagree
+        assert "$.properties.value" not in result["results"]
+
+    def test_anyof_explicit_config_takes_precedence(self):
+        """Explicit evaluation_config on anyOf should override child inference."""
+        schema = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "evaluation_config": "string_fuzzy",
+                    "anyOf": [
+                        {"type": "string", "evaluation_config": "string_exact"},
+                        {"type": "null"},
+                    ],
+                }
+            },
+        }
+        evaluator = StructuredEvaluator(StructuredEvaluatorConfig(metrics=[]))
+        result = evaluator.evaluate(schema, {"value": "hello"}, {"value": "helo"})
+        assert "$.properties.value" in result["results"]
+        # Should use string_fuzzy (the explicit config), not string_exact
+        assert "string_fuzzy" in result["results"]["$.properties.value"]
+
+
 class TestComplexSchema:
     """Test complex schema scenarios."""
 
