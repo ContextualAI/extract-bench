@@ -16,6 +16,7 @@ A benchmark for structured extraction from PDF documents, comprising:
   - [ReportConfig Options](#reportconfig-options)
   - [Batch Evaluation](#batch-evaluation)
   - [Report Output Format](#report-output-format)
+    - [Understanding the Scores](#understanding-the-scores)
   - [Low-Level API](#low-level-api)
 - [Metrics](#metrics)
   - [Available Metrics](#available-metrics)
@@ -76,11 +77,10 @@ This creates `eval_results/nvidia-10k-extract-gemini-flash/` containing:
 Key metrics on the report object:
 
 ```python
-print(f"Overall pass rate: {report.overall_pass_rate:.1%}")
-print(f"Overall score: {report.overall_score:.3f}")
-print(f"Fields evaluated: {report.outcomes.total_evaluated}")
-print(f"Passed: {report.outcomes.total_passed}")
-print(f"Failed: {report.outcomes.total_failed}")
+print(f"Overall score:  {report.overall_score:.3f}")   # Item-weighted (arrays count more)
+print(f"Field score:    {report.field_score:.3f}")      # Flat average (each field equal)
+print(f"Pass rate:      {report.overall_pass_rate:.1%}")
+print(f"Evaluated:      {report.outcomes.total_evaluated} fields")
 ```
 
 ## Evaluation API
@@ -155,43 +155,62 @@ for r in sorted(results, key=lambda x: -x["score"]):
 
 ### Report Output Format
 
+#### Understanding the Scores
+
+The report provides two complementary scores:
+
+| Score | What it measures | When to use |
+| --- | --- | --- |
+| **Overall Score** (item-weighted) | Each array item counts individually — an array of 10 items has 10x the weight of a scalar field | Primary score. Reflects how much of the *data* was extracted correctly |
+| **Field Score** (flat average) | Each schema field counts equally regardless of type | Secondary. Useful when you care about field-level completeness |
+
+Both scores range from 0.0 to 1.0. When a schema has no arrays, the two scores are identical.
+
+**Example:** A schema with `name` (string), `age` (integer), and `items` (array of 10 objects). If `name` and `age` are correct but only 8/10 items match:
+- Field score: (1.0 + 1.0 + 0.8) / 3 = **0.933**
+- Overall score: (1×1.0 + 1×1.0 + 10×0.8) / 12 = **0.833** ← reflects the 2 missed items
+
 #### summary.txt
 
-```
-================================================================================
-                        EVALUATION REPORT: my-experiment
-================================================================================
+A one-page overview designed for quick inspection:
 
+```
 OVERALL RESULTS
----------------
-Pass Rate: 85.2% (23/27 fields)
-Average Score: 0.891
+----------------------------------------
+  Overall Score:  0.909  (item-weighted)
+  Field Score:    0.897  (flat average)
+  Pass Rate: 84.6%
+  Evaluated: 13 fields (11 passed, 2 failed)
 
-SCHEMA SHAPE
-------------
-Total nodes: 45
-By type: object=12, string=18, number=8, array=5, boolean=2
+ARRAY BREAKDOWN
+----------------------------------------
+  languages [PASS] score=1.000
+    Items: 3 matched, 0 missed, 0 spurious
+    P=1.000  R=1.000  F1=1.000
+  workExperience [FAIL] score=0.667
+    Items: 2 matched, 1 missed, 1 spurious
+    P=0.667  R=0.667  F1=0.667
 
-COVERAGE
---------
-Present in both: 25
-Missing in extracted: 2
-Spurious in extracted: 0
-
-PASS/FAIL BY METRIC
--------------------
-string_semantic: 15/18 passed (83.3%)
-number_tolerance: 6/6 passed (100.0%)
-integer_exact: 2/3 passed (66.7%)
-
-LOWEST SCORING FIELDS
----------------------
-1. borrower.address (0.45) - Partial match, missing suite number
-2. terms.rate_type (0.60) - Semantic mismatch
-...
+FAILED FIELDS (first 10)
+----------------------------------------
+  other
+    Metric: array_llm, Score: 0.000
+    Reason: gold_empty_array
+  workExperience
+    Metric: array_llm, Score: 0.667
 ```
 
-#### fields.csv
+The **Array Breakdown** section shows per-array item-level matching. For each array:
+- **matched** — gold items correctly found in extracted
+- **missed** — gold items not found in extracted
+- **spurious** — extracted items not present in gold
+- **P/R/F1** — precision, recall, and F1 computed from these counts
+
+The array score itself is recall-based: `matched / (matched + missed)`.
+
+#### fields.csv / fields.md
+
+Per-field outcomes with array breakdown columns:
 
 | Column            | Description                                 |
 | ----------------- | ------------------------------------------- |
@@ -203,6 +222,18 @@ LOWEST SCORING FIELDS
 | `gold_value`      | Expected value                              |
 | `extracted_value` | Model's output value                        |
 | `reasoning`       | LLM reasoning (for semantic metrics)        |
+| `matched`         | Array: number of matched items              |
+| `missed_gold`     | Array: gold items missing from extracted    |
+| `spurious_pred`   | Array: extracted items not in gold          |
+| `precision`       | Array: matched / (matched + spurious)       |
+| `recall`          | Array: matched / (matched + missed)         |
+| `f1`              | Array: harmonic mean of P and R             |
+
+The array columns are empty for non-array fields.
+
+#### report.json
+
+Machine-readable full report including all statistics, per-field outcomes with array breakdowns (including the actual matched/missed/spurious item lists), coverage analysis, confusion matrix, and LLM call statistics. Use this for programmatic analysis.
 
 ### Low-Level API
 
