@@ -8,6 +8,7 @@ from typing import Dict, List, Optional, Set, Tuple
 from ...infra.nodes import RootSchema
 from ..metrics.base_metric import MetricResult
 from .models import (
+    ArrayBreakdown,
     ConfusionCounts,
     ErrorBreakdown,
     ErrorGroup,
@@ -115,6 +116,28 @@ def _extract_reasoning(result: MetricResult, max_length: int = 200) -> Optional[
     if reasoning and len(reasoning) > max_length:
         return reasoning[:max_length] + "..."
     return reasoning
+
+
+def _extract_array_breakdown(details: dict) -> Optional[ArrayBreakdown]:
+    """Extract array breakdown from array_llm structured_output."""
+    structured = details.get("structured_output")
+    if not isinstance(structured, dict):
+        return None
+    summary = structured.get("matches_summary")
+    agg = structured.get("aggregate_metrics")
+    if not isinstance(summary, dict) or not isinstance(agg, dict):
+        return None
+    return ArrayBreakdown(
+        matched=summary.get("matched", 0),
+        missed_gold=summary.get("missed_gold", 0),
+        spurious_pred=summary.get("spurious_pred", 0),
+        precision=agg.get("precision", 0.0),
+        recall=agg.get("recall", 0.0),
+        f1=agg.get("f1", 0.0),
+        matched_items=structured.get("matched_items"),
+        missed_gold_items=structured.get("missed_gold_items"),
+        spurious_pred_items=structured.get("spurious_pred_items"),
+    )
 
 
 def collect_outcome_stats(
@@ -225,6 +248,11 @@ def collect_outcome_stats(
                 low_scoring_fields.append((result.score, low_field))
 
             # Build field outcome
+            array_breakdown = (
+                _extract_array_breakdown(details)
+                if metric_id == "array_llm"
+                else None
+            )
             field_outcome = FieldOutcome(
                 path=path,
                 normalized_path=normalized,
@@ -235,6 +263,7 @@ def collect_outcome_stats(
                 gold_value=details.get("gold"),
                 extracted_value=details.get("extracted"),
                 reasoning=_extract_reasoning(result, max_reasoning_length),
+                array_breakdown=array_breakdown,
             )
             field_outcomes.append(field_outcome)
 

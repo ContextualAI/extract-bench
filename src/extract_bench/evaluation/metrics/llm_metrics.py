@@ -124,6 +124,8 @@ class LlmJudgeMetric(PolicyAwareMetric, BaseMetric):
             "pass_threshold": pass_threshold,
             "structured_output": parsed,
             "raw_response": content,
+            "gold": gold,
+            "extracted": extracted,
         }
 
         reasoning = parsed.get("reasoning")

@@ -123,6 +123,21 @@ class ErrorBreakdown:
 
 
 @dataclass(frozen=True)
+class ArrayBreakdown:
+    """Rich breakdown for array_llm evaluations."""
+
+    matched: int
+    missed_gold: int
+    spurious_pred: int
+    precision: float
+    recall: float
+    f1: float
+    matched_items: Optional[List[Any]] = None
+    missed_gold_items: Optional[List[Any]] = None
+    spurious_pred_items: Optional[List[Any]] = None
+
+
+@dataclass(frozen=True)
 class FieldOutcome:
     """Per-field evaluation outcome."""
 
@@ -135,6 +150,7 @@ class FieldOutcome:
     gold_value: Any = None
     extracted_value: Any = None
     reasoning: Optional[str] = None
+    array_breakdown: Optional[ArrayBreakdown] = None
 
 
 @dataclass(frozen=True)

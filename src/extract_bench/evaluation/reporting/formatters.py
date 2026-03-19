@@ -119,6 +119,25 @@ def format_text_summary(report: EvaluationReport, max_width: int = 80) -> str:
             ]:
                 lines.append(f"    {prefix}: {count}")
 
+    # Array breakdown
+    array_outcomes = [f for f in report.field_outcomes if f.array_breakdown is not None]
+    if array_outcomes:
+        lines.append("")
+        lines.append("ARRAY BREAKDOWN")
+        lines.append("-" * 40)
+        for outcome in array_outcomes:
+            ab = outcome.array_breakdown
+            status = "PASS" if outcome.passed else "FAIL"
+            lines.append(
+                f"  {outcome.normalized_path} [{status}] score={outcome.score:.3f}"
+            )
+            lines.append(
+                f"    Items: {ab.matched} matched, {ab.missed_gold} missed, {ab.spurious_pred} spurious"
+            )
+            lines.append(
+                f"    P={ab.precision:.3f}  R={ab.recall:.3f}  F1={ab.f1:.3f}"
+            )
+
     # Failed fields summary
     failed_outcomes = [f for f in report.field_outcomes if not f.passed]
     if failed_outcomes:
@@ -143,17 +162,32 @@ def format_markdown_table(
     """Format field outcomes as markdown table."""
     lines: List[str] = []
 
-    lines.append("| Path | Metric | Score | Passed | Reason |")
-    lines.append("|------|--------|-------|--------|--------|")
+    lines.append(
+        "| Path | Metric | Score | Passed | Reason | Matched | Missed | Spurious | P | R | F1 |"
+    )
+    lines.append(
+        "|------|--------|-------|--------|--------|---------|--------|----------|---|---|----| "
+    )
 
     for outcome in field_outcomes:
         reason = outcome.reason or ""
         if len(reason) > max_reason_length:
             reason = reason[:max_reason_length] + "..."
         passed_str = "Yes" if outcome.passed else "No"
-        lines.append(
-            f"| {outcome.normalized_path} | {outcome.metric_id} | {outcome.score:.3f} | {passed_str} | {reason} |"
-        )
+        ab = outcome.array_breakdown
+        if ab:
+            lines.append(
+                f"| {outcome.normalized_path} | {outcome.metric_id} | {outcome.score:.3f} "
+                f"| {passed_str} | {reason} "
+                f"| {ab.matched} | {ab.missed_gold} | {ab.spurious_pred} "
+                f"| {ab.precision:.2f} | {ab.recall:.2f} | {ab.f1:.2f} |"
+            )
+        else:
+            lines.append(
+                f"| {outcome.normalized_path} | {outcome.metric_id} | {outcome.score:.3f} "
+                f"| {passed_str} | {reason} "
+                f"| | | | | | |"
+            )
 
     return "\n".join(lines)
 
@@ -174,10 +208,17 @@ def format_csv(field_outcomes: List[FieldOutcome]) -> str:
             "extracted_value",
             "reason",
             "reasoning",
+            "matched",
+            "missed_gold",
+            "spurious_pred",
+            "precision",
+            "recall",
+            "f1",
         ]
     )
 
     for outcome in field_outcomes:
+        ab = outcome.array_breakdown
         writer.writerow(
             [
                 outcome.path,
@@ -189,6 +230,12 @@ def format_csv(field_outcomes: List[FieldOutcome]) -> str:
                 outcome.extracted_value if outcome.extracted_value is not None else "",
                 outcome.reason or "",
                 outcome.reasoning or "",
+                ab.matched if ab else "",
+                ab.missed_gold if ab else "",
+                ab.spurious_pred if ab else "",
+                f"{ab.precision:.6f}" if ab else "",
+                f"{ab.recall:.6f}" if ab else "",
+                f"{ab.f1:.6f}" if ab else "",
             ]
         )
 
