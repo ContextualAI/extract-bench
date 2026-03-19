@@ -193,5 +193,6 @@ class EvaluationReport:
     field_outcomes: List[FieldOutcome]
 
     # Summary scores
-    overall_score: float
+    overall_score: float  # Item-weighted: arrays weighted by gold item count
+    field_score: float  # Flat average: each field counts equally
     overall_pass_rate: float

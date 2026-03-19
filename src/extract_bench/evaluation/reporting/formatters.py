@@ -37,11 +37,12 @@ def format_text_summary(report: EvaluationReport, max_width: int = 80) -> str:
     lines.append("")
     lines.append("OVERALL RESULTS")
     lines.append("-" * 40)
+    lines.append(f"  Overall Score:  {report.overall_score:.3f}  (item-weighted)")
+    lines.append(f"  Field Score:    {report.field_score:.3f}  (flat average)")
     lines.append(f"  Pass Rate: {report.overall_pass_rate:.1%}")
-    lines.append(f"  Overall Score: {report.overall_score:.3f}")
-    lines.append(f"  Evaluated Fields: {report.outcomes.total_evaluated}")
-    lines.append(f"  Passed: {report.outcomes.total_passed}")
-    lines.append(f"  Failed: {report.outcomes.total_failed}")
+    lines.append(f"  Evaluated: {report.outcomes.total_evaluated} fields "
+                 f"({report.outcomes.total_passed} passed, "
+                 f"{report.outcomes.total_failed} failed)")
 
     # Schema stats
     lines.append("")

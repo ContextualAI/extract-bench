@@ -1,4 +1,4 @@
-"""Tests for Phase 2: rich array breakdown surfacing in reports."""
+"""Tests for array breakdown surfacing in reports and item-weighted scoring."""
 
 from extract_bench.evaluation.reporting.formatters import (
     format_csv,
@@ -203,6 +203,7 @@ class TestFormattersWithBreakdown:
             ),
             field_outcomes=outcomes,
             overall_score=0.857,
+            field_score=0.857,
             overall_pass_rate=1.0,
         )
         text = format_text_summary(report)
@@ -212,3 +213,64 @@ class TestFormattersWithBreakdown:
         assert "1 spurious" in text
         assert "P=0.833" in text
         assert "R=0.714" in text
+        # Both score types should appear
+        assert "item-weighted" in text
+        assert "flat average" in text
+        assert "Field Score" in text
+
+
+class TestItemWeightedScoring:
+    """Test that overall_score weights arrays by gold item count."""
+
+    def test_array_weighted_more_than_scalar(self):
+        """An array with 10 gold items should weigh 10x a scalar field."""
+        ab = ArrayBreakdown(
+            matched=8, missed_gold=2, spurious_pred=0,
+            precision=1.0, recall=0.8, f1=0.889,
+        )
+        outcomes = [
+            FieldOutcome(
+                path="$.properties.name", normalized_path="name",
+                metric_id="string_exact", score=1.0, passed=True,
+            ),
+            FieldOutcome(
+                path="$.properties.items", normalized_path="items",
+                metric_id="array_llm", score=0.8, passed=True,
+                array_breakdown=ab,
+            ),
+        ]
+        # Flat: (1.0 + 0.8) / 2 = 0.9
+        scores = [f.score for f in outcomes]
+        field_score = sum(scores) / len(scores)
+        assert abs(field_score - 0.9) < 1e-6
+
+        # Weighted: (1.0*1 + 0.8*10) / (1+10) = 9.0/11 ≈ 0.818
+        weighted_sum = 0.0
+        total_weight = 0.0
+        for f in outcomes:
+            weight = max(1, f.array_breakdown.matched + f.array_breakdown.missed_gold) if f.array_breakdown else 1
+            weighted_sum += f.score * weight
+            total_weight += weight
+        overall_score = weighted_sum / total_weight
+        assert abs(overall_score - 9.0 / 11.0) < 1e-6
+        # Weighted score should be lower because the array (score 0.8) dominates
+        assert overall_score < field_score
+
+    def test_no_arrays_scores_equal(self):
+        """Without arrays, both scores should be identical."""
+        outcomes = [
+            FieldOutcome(
+                path="$.properties.name", normalized_path="name",
+                metric_id="string_exact", score=1.0, passed=True,
+            ),
+            FieldOutcome(
+                path="$.properties.age", normalized_path="age",
+                metric_id="integer_exact", score=0.0, passed=False,
+            ),
+        ]
+        scores = [f.score for f in outcomes]
+        field_score = sum(scores) / len(scores)
+
+        weighted_sum = sum(f.score * 1 for f in outcomes)
+        overall_score = weighted_sum / len(outcomes)
+        assert abs(field_score - overall_score) < 1e-6

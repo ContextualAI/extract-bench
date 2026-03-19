@@ -106,9 +106,24 @@ class ReportBuilder:
             json_schema, gold_json, extracted_json
         )
 
-        # Compute overall score (average of all scores)
+        # Compute scores
+        # Field score: flat average (each field counts equally)
         scores = [f.score for f in field_outcomes if f.score is not None]
-        overall_score = sum(scores) / len(scores) if scores else 0.0
+        field_score = sum(scores) / len(scores) if scores else 0.0
+
+        # Overall score: item-weighted (arrays weighted by gold item count)
+        weighted_sum = 0.0
+        total_weight = 0.0
+        for f in field_outcomes:
+            if f.score is None:
+                continue
+            if f.array_breakdown:
+                weight = max(1, f.array_breakdown.matched + f.array_breakdown.missed_gold)
+            else:
+                weight = 1
+            weighted_sum += f.score * weight
+            total_weight += weight
+        overall_score = weighted_sum / total_weight if total_weight > 0 else 0.0
 
         # Build report
         report = EvaluationReport(
@@ -124,6 +139,7 @@ class ReportBuilder:
             outcomes=outcome_stats,
             field_outcomes=field_outcomes,
             overall_score=overall_score,
+            field_score=field_score,
             overall_pass_rate=outcome_stats.pass_rate,
         )
 
