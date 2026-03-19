@@ -121,10 +121,11 @@ class _AsyncMetricsEvaluatorVisitor(AsyncPathAnalyzerVisitor):
         if config is None or not config.metrics:
             return True
 
+        metric_configs = config.metrics
         results = await asyncio.gather(
             *(
-                self._execute_metric_with_retry(metric_config, node)
-                for metric_config in config.metrics
+                self._execute_metric_with_retry(mc, node)
+                for mc in metric_configs
             ),
             return_exceptions=True,
         )
@@ -132,9 +133,9 @@ class _AsyncMetricsEvaluatorVisitor(AsyncPathAnalyzerVisitor):
         metrics_results: Dict[str, MetricResult] = {}
         should_recurse = True
 
-        for raw_result in results:
+        for mc, raw_result in zip(metric_configs, results):
             should_recurse = should_recurse and self._accumulate_metric_result(
-                raw_result, metrics_results
+                raw_result, mc, metrics_results
             )
 
         if metrics_results:
@@ -158,26 +159,32 @@ class _AsyncMetricsEvaluatorVisitor(AsyncPathAnalyzerVisitor):
     def _accumulate_metric_result(
         self,
         raw_result: Exception | tuple[MetricResult, BaseMetric],
+        metric_config: MetricConfig,
         metrics_results: Dict[str, MetricResult],
     ) -> bool:
         if isinstance(raw_result, Exception):
-            error_result = self._build_error_metric_result(raw_result)
-            metrics_results[f"error_{id(raw_result)}"] = error_result
-            return True
+            error_result = self._build_error_metric_result(
+                raw_result, metric_config.metric_id
+            )
+            metrics_results[error_result.metric_id] = error_result
+            return False
 
         metric_result, metric = raw_result
         metrics_results[metric_result.metric_id] = metric_result
         return getattr(metric, "recurse_into_children", True)
 
     @staticmethod
-    def _build_error_metric_result(error: Exception) -> MetricResult:
+    def _build_error_metric_result(
+        error: Exception, metric_id: str = "unknown"
+    ) -> MetricResult:
         return MetricResult(
-            metric_id="unknown",
+            metric_id=metric_id,
             score=0.0,
             passed=False,
             details={
                 "error": str(error),
                 "error_type": type(error).__name__,
+                "reason": "error",
             },
         )
 

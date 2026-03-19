@@ -73,6 +73,8 @@ def _get_reason_category(result: MetricResult) -> str:
     details = result.details or {}
     reason = details.get("reason", "")
 
+    if reason == "error" or "error" in details:
+        return "error"
     if reason in ("both_missing", "both_absent", "both_null"):
         return "both_absent"
     if reason in ("gold_null", "gold_missing"):
