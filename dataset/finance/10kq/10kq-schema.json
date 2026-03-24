@@ -4,7 +4,7 @@
     "unit": {
       "type": "string",
       "evaluation_config": "string_case_insensitive",
-      "description": "Currency or measurement unit (e.g. 'USD', 'EUR', '%', 'GBP')."
+      "description": "Normalised currency or measurement unit inferred from context (e.g. 'USD', 'EUR', '%', 'GBP', 'users'). Do not return a unit if the value is null."
     },
     "scale": {
       "anyOf": [
@@ -16,7 +16,7 @@
         }
       ],
       "evaluation_config": "integer_exact",
-      "description": "Numeric scale factor (e.g. 1000 for thousands, 1000000 for millions, 1 for unscaled values). Null if unspecified."
+      "description": "Numeric scale factor inferred or normalised from the source (e.g. 1000 for 'thousands', 1000000 for 'millions', 1 for 'percentage' or values without a scale). Use null if unspecified. Do not return a scale if the value is null."
     },
     "value": {
       "anyOf": [
@@ -28,7 +28,7 @@
         },
         {
           "type": "string",
-          "description": "String representation for ranges (e.g. '33–37') or non-numeric values. Exclude units and scales."
+          "description": "Used only when the reported figure is a range (e.g., '33–37', '120–130') or otherwise non-numeric guidance text. Exclude all units (e.g., $ and %) and scales (e.g., m, bn) from the string."
         }
       ],
       "evaluation_config": {
@@ -36,12 +36,12 @@
           {"metric_id": "number_tolerance", "params": {"tolerance": 0.001}}
         ]
       },
-      "description": "Reported numeric value. Use a string for ranges (e.g. '33–37'). Null if unavailable."
+      "description": "Reported numeric value as stated in the presentation. Use a string only when the reported value is a range (e.g., '33–37') or otherwise non-numeric. If unavailable, return null (never use −1, 0, or placeholders when the value is unavailable). Explicitly set to null if the document lacks the figure. Do not infer, estimate, or calculate."
     },
     "data_period": {
       "type": "string",
       "evaluation_config": "string_exact",
-      "description": "Canonical reporting period label (e.g. 'FY2025 Q3', 'FY2025 H1', 'FY2025 YTD', 'FY2025'). 'NA' if unknown."
+      "description": "Normalised canonical reporting period label returned in this exact format: 'FY2025 Q3', 'FY2025 H1', 'FY2025 YTD', or 'FY2025'. Use report_period_end_date to ensure that data_period aligns with the fiscal period of report_period, not the calendar date associated with the data values. For balance sheet metrics where data_period is not specified and could be a quarter (e.g., FY2025 Q4), half year (e.g., FY2025 H2) or year (e.g. FY2025), infer the most applicable period from the report_period unless specified otherwise. If no reporting period is identifiable, set to 'NA'."
     },
     "metric_type": {
       "enum": [
@@ -51,7 +51,7 @@
       "type": "string",
       "default": "actual",
       "evaluation_config": "string_exact",
-      "description": "Whether the metric is an actual reported value or forward-looking guidance."
+      "description": "Specifies whether the metric represents an actual reported value or forward-looking guidance. Default is 'actual' unless the document explicitly describes the value as guidance."
     },
     "metric_entry": {
       "type": "object",
@@ -85,13 +85,13 @@
           "$ref": "#/$defs/segment_type"
         }
       },
-      "description": "Common structure for all metric entries, including period, segment, unit, scale, and value.",
+      "description": "Only use reported values, do not calculate values (e.g., short-term debt + long-term debt to calculate total debt) for this object. For the report_period, aim to return one object for every defined metric ('actual' only), even if unavailable (set value to NA). However, you do not need to create null entries for segment-level data (business_segment or geographic_segment) if the document contains no segment breakdowns. If the document includes values for additional periods (e.g., prior quarters or years), include those as separate entries as well. Ensure the report_period is always represented with a complete set of metric entries. This object defines the common structure for all metric entries, including growth metrics, which inherit from this template.",
       "additionalProperties": false
     },
     "segment_name": {
       "type": "string",
       "evaluation_config": "string_semantic",
-      "description": "Name of the business or geographic segment (e.g. 'Cloud', 'North America'). 'NA' for company-level metrics."
+      "description": "Name of reportable business segments or geographic segments. This should be returned as 'NA' when 'segment_type' is 'company'. Extract from the document text (e.g. 'Cloud', 'Retail Banking', 'North America') but do not include 'segment' in the value (e.g., 'Automotive segment' --> 'Automotive')."
     },
     "segment_type": {
       "enum": [
@@ -102,7 +102,7 @@
       "type": "string",
       "default": "company",
       "evaluation_config": "string_exact",
-      "description": "Reporting level: 'company' for consolidated totals, 'business_segment', or 'geographic_segment'."
+      "description": "Indicates the reporting level of this metric. Use 'company' for consolidated company totals. Only use 'business_segment' for reportable business segments. Use 'geographic_segment' for regional or geographic segments."
     },
     "growth_metric": {
       "type": "object",
@@ -146,10 +146,10 @@
           ],
           "type": "string",
           "evaluation_config": "string_exact",
-          "description": "Comparison basis: 'Yoy' (year-on-year), 'Qoq' (quarter-on-quarter), 'Ytd' (year-to-date), or 'Ttm' (trailing twelve months)."
+          "description": "Specifies the comparison basis: 'Yoy' (year-on-year), 'Qoq' (quarter-on-quarter), 'Ytd' (year-to-date), or 'Ttm' (trailing twelve months)."
         }
       },
-      "description": "Metric entry for growth-based metrics, with an additional comparison_type field.",
+      "description": "Same structure as 'metric_entry' but used for growth-based metrics (e.g. revenueGrowth, ebitdaGrowth, arpuGrowth). Includes an additional 'comparison_type' property to specify the basis of comparison: year-on-year (Yoy), quarter-on-quarter (Qoq), year-to-date (Ytd), or trailing twelve months (Ttm). These metrics represent percentage or ratio changes rather than absolute values.",
       "additionalProperties": false
     }
   },
@@ -175,14 +175,14 @@
           "default": "NA",
           "pattern": "^FY\\d{4}( (Q[1-4]|H[1-2]|YTD))?$",
           "evaluation_config": "string_exact",
-          "description": "Canonical reporting period (e.g. 'FY2025 Q3', 'FY2025 H1', 'FY2025')."
+          "description": "Derived canonical reporting period label in this exact format: 'FY2025 Q3', 'FY2025 H1', 'FY2025 YTD', or 'FY2025'. Must always follow this pattern."
         },
         "report_period_end_date": {
           "type": "string",
           "format": "date",
           "default": "NA",
           "evaluation_config": "string_exact",
-          "description": "End date of the reporting period in YYYY-MM-DD format (e.g. '2024-12-31')."
+          "description": "The calendar date marking the end of the reporting period (e.g., '2024-12-31'). Use ISO 8601 format (YYYY-MM-DD). This field supports fiscal alignment logic; it should reflect the exact end date stated in the filing cover."
         }
       },
       "additionalProperties": false
@@ -372,7 +372,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Net property, plant, and equipment (PP&E)"
+          "description": "Property, plant, and equipment: Net value of property, plant, and equipment (PP&E) after accumulated depreciation"
         }
       }
     },
@@ -393,7 +393,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Basic earnings per share (EPS)"
+          "description": "Basic earnings per share (EPS); net income attributable to common shareholders divided by weighted average common shares outstanding"
         },
         "net_income": {
           "type": "array",
@@ -409,7 +409,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Diluted earnings per share (EPS)"
+          "description": "Diluted earnings per share (EPS); net income attributable to common shareholders divided by weighted average common shares outstanding, including dilutive securities"
         },
         "gross_margin": {
           "type": "array",
@@ -417,7 +417,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Gross profit as a percentage of total revenue."
+          "description": "Gross profit as a percentage of total revenue. Do not infer, estimate, calculate, or assume."
         },
         "gross_profit": {
           "type": "array",
@@ -425,7 +425,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Gross profit (revenue minus cost of goods sold)."
+          "description": "Gross profit (revenue minus cost of goods sold). Do not infer, estimate, calculate, or assume."
         },
         "revenue_growth": {
           "type": "array",
@@ -433,7 +433,7 @@
           "items": {
             "$ref": "#/$defs/growth_metric"
           },
-          "description": "Percentage growth in revenue compared to a prior period."
+          "description": "Percentage growth in Revenue compared to a prior period. Affix the type of comparison to the end of the metric name (Yoy, Qoq, Ytd, Ttm)."
         },
         "cost_of_revenue": {
           "type": "array",
@@ -441,7 +441,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Costs directly associated with the production of revenue."
+          "description": "Costs directly associated with the production of revenue. Do not infer, estimate, calculate, or assume."
         },
         "interest_expense": {
           "type": "array",
@@ -473,7 +473,7 @@
           "items": {
             "$ref": "#/$defs/growth_metric"
           },
-          "description": "Percentage growth in net income compared to a prior period."
+          "description": "Percentage growth in Net income compared to a prior period. Affix the type of comparison to the end of the metric name (Yoy, Qoq, Ytd, Ttm)."
         },
         "effective_tax_rate": {
           "type": "array",
@@ -489,7 +489,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Provision for income taxes"
+          "description": "Provision for income taxes (reported as a positive expense or negative benefit)"
         },
         "operating_expenses": {
           "type": "array",
@@ -563,7 +563,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Capital expenditures (PP&E and other capitalised assets)"
+          "description": "Capital expenditures: Investments in property, plant, equipment (PP&E), and other capitalised assets"
         },
         "shares_issued": {
           "type": "array",
@@ -579,7 +579,7 @@
           "items": {
             "$ref": "#/$defs/metric_entry"
           },
-          "description": "Cash dividends paid to shareholders"
+          "description": "Cash dividends paid to shareholders, including dividend equivalents paid on equity-linked awards"
         },
         "commercial_paper_issuance": {
           "type": "array",

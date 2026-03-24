@@ -1,6 +1,6 @@
 {
   "ids": "arXiv:2501.02189v6",
-  "title": "ASurvey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges",
+  "title": "A Survey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges",
   "venue": "arXiv",
   "publication_type": "Preprint",
   "authors": [
@@ -15,7 +15,7 @@
       "email": "wuxiyang@umd.edu"
     },
     {
-      "name": "HongyangDu",
+      "name": "Hongyang Du",
       "array_index": 2,
       "email": "hdu1@umd.edu"
     },
@@ -30,7 +30,7 @@
       "email": "nghiemh@umd.edu"
     },
     {
-      "name": "GuangyaoShi",
+      "name": "Guangyao Shi",
       "array_index": 5,
       "email": "shig@usc.edu"
     }
@@ -38,7 +38,7 @@
   "abstract": "Multimodal Vision Language Models (VLMs) have emerged as a transformative topic at the intersection of computer vision and natural language processing, enabling machines to perceive and reason about the world through both visual and textual modalities. For example, models such as CLIP [194], Claude [11], and GPT-4V [246] demonstrate strong reasoning and understanding abilities on visual and textual data and beat classical single modality vision models on zero-shot classification [94]. With their rapid advancements in research and growing popularity in various applications, we provide a comprehensive survey of VLMs. Specifically, we provide a systematic overview of VLMs in the following aspects: [1] model information of the major VLMs developed up to 2025; [2] the transition of VLM architectures and the newest VLM alignment methods; [3] summary and categorization of the popular benchmarks and evaluation metrics of VLMs; [4] the challenges and issues faced by current VLMs such as hallucination, alignment, and safety.",
   "keywords": [],
   "number_of_pages": 22,
-  "publication_date": "6 Apr 2025",
+  "publication_date": "2025-04-06",
   "citations": [
     "Vicuna: An open-source chatbot impressing gpt-4 with 90%* chatgpt quality, 2023. Accessed: 2024-12-23.",
     "Marah Abdin, Jyoti Aneja, Hany Awadalla, Ahmed Awadallah, Ammar Ahmad Awan, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Jianmin Bao, Harkirat Behl, Alon Benhaim, Misha Bilenko, Johan Bjorck, Sébastien Bubeck, Martin Cai, Qin Cai, Vishrav Chaudhary, Dong Chen, Dongdong Chen, Weizhu Chen, Yen-Chun Chen, Yi-Ling Chen, Hao Cheng, Parul Chopra, Xiyang Dai, Matthew Dixon, Ronen Eldan, Victor Fragoso, Jianfeng Gao, Mei Gao, Min Gao, Amit Garg, Allie Del Giorno, Abhishek Goswami, Suriya Gunasekar, Emman Haider, Junheng Hao, Russell J. Hewett, Wenxiang Hu, Jamie Huynh, Dan Iter, Sam Ade Jacobs, Mojan Javaheripi, Xin Jin, Nikos Karampatziakis, Piero Kauffmann, Mahoud Khademi, Dongwoo Kim, Young Jin Kim, Lev Kurilenko, James R. Lee, Yin Tat Lee, Yuanzhi Li, Yunsheng Li, Chen Liang, Lars Liden, Xihui Lin, Zeqi Lin, Ce Liu, Liyuan Liu, Mengchen Liu, Weishung Liu, Xiaodong Liu, Chong Luo, Piyush Madan, Ali Mahmoudzadeh, David Majercak, Matt Mazzola, Caio César Teodoro Mendes, Arindam Mitra, Hardik Modi, Anh Nguyen, Brandon Norick, Barun Patra, Daniel Perez-Becker, Thomas Portet, Reid Pryzant, Heyang Qin, Marko Radmilac, Liliang Ren, Gustavo de Rosa, Corby Rosset, Sambudha Roy, Olatunji Ruwase, Olli Saarikivi, Amin Saied, Adi Salim, Michael Santacroce, Shital Shah, Ning Shang, Hiteshi Sharma, Yelong Shen, Swadheen Shukla, Xia Song, Masahiro Tanaka, Andrea Tupini, Praneetha Vaddamanu, Chunyu Wang, Guanhua Wang, Lijuan Wang, Shuohang Wang, Xin Wang, Yu Wang, Rachel Ward, Wen Wen, Philipp Witte, Haiping Wu, Xiaoxia Wu, Michael Wyatt, Bin Xiao, Can Xu, Jiahang Xu, Weijian Xu, Jilong Xue, Sonali Yadav, Fan Yang, Jianwei Yang, Yifan Yang, Ziyi Yang, Donghan Yu, Lu Yuan, Chenruidong Zhang, Cyril Zhang, Jianwen Zhang, Li Lyna Zhang, Yi Zhang, Yue Zhang, Yunan Zhang, and Xiren Zhou. Phi-3 technical report: A highly capable language model locally on your phone, 2024.",

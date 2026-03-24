@@ -1,8 +1,8 @@
 {
   "meta": {
-    "company": "Thor Industries",
+    "company": "Thor Industries, Inc.",
     "report_period": "FY2025 Q2",
-    "report_period_end_date": "2025-01-2025"
+    "report_period_end_date": "2025-01-31"
   },
   "income_statement": {
     "revenue": [
@@ -1549,7 +1549,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 167837
       },
@@ -1558,7 +1558,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 423069
       },
@@ -1567,7 +1567,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 173240
       },
@@ -1576,7 +1576,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 515398
       }
@@ -1625,7 +1625,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 16200
       },
@@ -1634,7 +1634,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 327876
       },
@@ -1643,7 +1643,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 16200
       },
@@ -1652,7 +1652,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1,
         "value": 0
       }
@@ -1695,17 +1695,6 @@
         "unit": "USD",
         "scale": 1000,
         "value": -44200
-      }
-    ],
-    "commercial_paper": [
-      {
-        "data_period": "FY2025 Q2",
-        "metric_type": "actual",
-        "segment_type": "company",
-        "segment_name": "NA",
-        "unit": "NA",
-        "scale": null,
-        "value": null
       }
     ]
   },

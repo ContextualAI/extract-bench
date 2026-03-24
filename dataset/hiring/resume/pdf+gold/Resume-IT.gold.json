@@ -15,9 +15,11 @@
     "German (Intermediate)"
   ],
   "personalInfo": {
-    "emails": "marcus.chen@devmail.com",
-    "phones": "987123456",
     "fullName": "Marcus Chen",
+    "contact": {
+      "emails": ["marcus.chen@devmail.com"],
+      "phones": ["987123456"]
+    },
     "personalStatement": "Full-stack software engineer with 8+ years of experience building scalable web applications and cloud-based solutions."
   },
   "media": [],

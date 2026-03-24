@@ -1,6 +1,6 @@
 {
   "meta": {
-    "company": "Dell Technologies",
+    "company": "Dell Technologies Inc.",
     "report_period": "FY2025 Q2",
     "report_period_end_date": "2024-08-02"
   },
@@ -1326,6 +1326,17 @@
         "scale": null,
         "value": null
       }
+    ],
+    "commercial_paper_outstanding": [
+      {
+        "data_period": "FY2025 Q2",
+        "metric_type": "actual",
+        "segment_type": "company",
+        "segment_name": "NA",
+        "unit": "USD",
+        "scale": 1000000,
+        "value": 0
+      }
     ]
   },
   "cash_flow_statement": {
@@ -1358,17 +1369,6 @@
         "unit": "USD",
         "scale": 1000000,
         "value": 1325
-      }
-    ],
-    "commercial_paper_outstanding": [
-      {
-        "data_period": "FY2025 Q2",
-        "metric_type": "actual",
-        "segment_type": "company",
-        "segment_name": "NA",
-        "unit": "USD",
-        "scale": 1000000,
-        "value": 0
       }
     ],
     "dividends_paid": [
@@ -1502,7 +1502,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 0
       },
@@ -1511,7 +1511,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 12
       },
@@ -1520,7 +1520,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 19
       }
@@ -1531,7 +1531,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 12
       },
@@ -1540,7 +1540,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "shares",
         "scale": 1000000,
         "value": 11
       }

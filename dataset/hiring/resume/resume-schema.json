@@ -15,7 +15,7 @@
           "type": "string",
           "evaluation_config": "string_semantic"
         },
-        "description": "Media mentions, appearances, or similar"
+        "description": "Media mentions, appearances, or similar public visibility items such as press coverage, podcast appearances, interviews, speaking engagements, or featured articles. Extract as listed in the document."
       },
       "other": {
         "type": "array",
@@ -23,19 +23,20 @@
         "items": {
           "type": "object",
           "properties": {
+            "array_index": {"type": "integer", "evaluation_config": "integer_exact"},
             "content": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "The content or description for this miscellaneous section"
+              "description": "The content or description for this miscellaneous section, extracted verbatim or faithfully summarised from the document. May include volunteer work, hobbies, interests, community involvement, or other items."
             },
             "sectionTitle": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Miscellaneous sections"
+              "description": "Title of the miscellaneous section as it appears in the document (e.g., 'Volunteer Work', 'Interests', 'Community Involvement')"
             }
           }
         },
-        "description": "Catch-all for miscellaneous sections not captured elsewhere."
+        "description": "Catch-all for miscellaneous sections not captured by other top-level fields (e.g., volunteer work, hobbies, interests, community involvement, professional development, projects). Each entry should preserve the original section title from the document."
       },
       "skills": {
         "anyOf": [
@@ -46,11 +47,11 @@
               "type": "string",
               "evaluation_config": "string_semantic"
             },
-            "description": "Flat list of skills when skills are presented as a simple ungrouped list in the document"
+            "description": "Flat list of skills when the document presents skills as a simple ungrouped list without category headings. Extract each skill as a separate string, preserving the wording from the document."
           },
           {
             "type": "object",
-            "description": "Skills grouped by category, when the document organizes skills under category headings like 'Research Interests', 'Technical Skills', 'Marketing Platforms', etc.). Keys are category names and values are arrays of skills under that category.",
+            "description": "Skills grouped by category, used when the document organises skills under explicit category headings (e.g., 'Research Interests', 'Technical Skills', 'Marketing Platforms', 'Programming Languages'). Keys are the category names as they appear in the document and values are arrays of individual skills under that category. Do not invent categories; only use this format when groupings are explicit in the source.",
             "additionalProperties": {
               "type": "array",
               "evaluation_config": "array_llm",
@@ -68,6 +69,7 @@
         "items": {
           "type": "object",
           "properties": {
+            "array_index": {"type": "integer", "evaluation_config": "integer_exact"},
             "endDate": {
               "anyOf": [
                 {"type": "string", "evaluation_config": "string_exact"},
@@ -84,21 +86,21 @@
             "description": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Any additional information about the education, such as GPA, honors, mentors, coursework, etc."
+              "description": "Any additional information about the education entry, such as GPA, honors, thesis title, mentors, relevant coursework, or distinctions. Extract as presented in the document; do not infer or fabricate details."
             },
             "institution": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Name of the institution"
+              "description": "Full name of the educational institution as stated in the document (e.g., 'Massachusetts Institute of Technology', 'University of Oxford'). Do not abbreviate."
             },
             "qualificationTitle": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Name of the academic degree or qualification earned, such as 'Mechanical Engineering, PhD', etc."
+              "description": "Name of the academic degree or qualification earned, including the field of study and degree level (e.g., 'Mechanical Engineering, PhD', 'B.S. Computer Science', 'MBA'). Extract as stated in the document."
             }
           }
         },
-        "description": "Education history"
+        "description": "Education history, listed in the order presented in the document. Each entry represents one degree, diploma, or educational programme. Include all education entries found in the document."
       },
       "languages": {
         "type": "array",
@@ -107,7 +109,7 @@
           "type": "string",
           "evaluation_config": "string_semantic"
         },
-        "description": "Languages spoken and proficiency levels"
+        "description": "Languages spoken by the candidate. Include proficiency level if stated in the document (e.g., 'English (Native)', 'Spanish (Fluent)', 'Mandarin (Conversational)'). If no proficiency is specified, return just the language name."
       },
       "socialLinks": {
         "type": "array",
@@ -117,7 +119,7 @@
           "format": "uri",
           "evaluation_config": "string_exact"
         },
-        "description": "Links to professional profiles such as LinkedIn, GitHub, personal websites"
+        "description": "URLs linking to professional profiles or personal websites (e.g., LinkedIn, GitHub, portfolio sites, Google Scholar). Extract the full URL as it appears in the document. Do not fabricate or guess URLs."
       },
       "personalInfo": {
         "type": "object",
@@ -136,7 +138,7 @@
                   "format": "email",
                   "evaluation_config": "string_case_insensitive"
                 },
-                "description": "Email addresses"
+                "description": "Email addresses as listed in the document. Extract all email addresses found in the contact or header section of the resume."
               },
               "phones": {
                 "type": "array",
@@ -145,19 +147,19 @@
                   "type": "string",
                   "evaluation_config": "string_semantic"
                 },
-                "description": "Phone numbers"
+                "description": "Phone numbers as listed in the document. Preserve the original formatting (e.g., '+1 (555) 123-4567', '555.123.4567')."
               }
             }
           },
           "fullName": {
             "type": "string",
             "evaluation_config": "string_semantic",
-            "description": "Full name of the candidate, including any titles used, such as Dr, Professor, etc."
+            "description": "Full name of the candidate as displayed on the resume, including any titles or honorifics used (e.g., 'Dr.', 'Professor', 'Jr.'). Extract exactly as presented."
           },
           "personalStatement": {
             "type": "string",
             "evaluation_config": "string_semantic",
-            "description": "Introductory statement, profile summary, or personal description"
+            "description": "Introductory statement, profile summary, objective, or personal description typically found at the top of the resume. Extract the full text as presented in the document."
           }
         }
       },
@@ -167,46 +169,47 @@
         "items": {
           "type": "object",
           "properties": {
+            "array_index": {"type": "integer", "evaluation_config": "integer_exact"},
             "link": {
               "type": "string",
               "evaluation_config": "string_exact",
-              "description": "URL to the publication"
+              "description": "URL or DOI link to the publication, if provided in the document. Do not fabricate URLs."
             },
             "year": {
               "type": "string",
               "evaluation_config": "string_exact",
-              "description": "Publication year"
+              "description": "Year the work was published, as stated in the document (e.g., '2023', '2024'). Return as a string."
             },
             "title": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Title of the publication"
+              "description": "Full title of the publication as it appears in the document. Do not abbreviate or rephrase."
             },
             "authors": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Author name(s) as they appear in the publication"
+              "description": "Author name(s) as listed in the document for this publication entry. Preserve the original ordering and formatting."
             },
             "publisher": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Journal or publisher of the publication"
+              "description": "Journal, conference, or publisher name where the work was published (e.g., 'Nature', 'NeurIPS 2024', 'Springer'). Extract as stated in the document."
             }
           }
         },
-        "description": "Academic publications, research papers, articles, or similar"
+        "description": "Academic publications, research papers, journal articles, conference papers, books, or similar scholarly works listed on the resume. Extract all publication entries found in the document."
       },
       "workExperience": {
         "type": "array",
         "evaluation_config": "array_llm",
         "items": {
           "type": "object",
-          "required": ["description"],
           "properties": {
+            "array_index": {"type": "integer", "evaluation_config": "integer_exact"},
             "employer": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Employer name"
+              "description": "Name of the employer, organisation, or institution as stated in the document. Do not abbreviate."
             },
             "endDate": {
               "anyOf": [
@@ -214,7 +217,7 @@
                 {"type": "integer", "evaluation_config": "integer_exact"},
                 {"type": "null"}
               ],
-              "description": "Null if current"
+              "description": "End date of employment. Set to null if this is the candidate's current position or if the document indicates 'Present', 'Current', or similar."
             },
             "startDate": {
               "anyOf": [
@@ -227,26 +230,26 @@
                 {"type": "string", "evaluation_config": "string_semantic"},
                 {"type": "null"}
               ],
-              "description": "Type of experience (e.g., 'Teaching Experience', 'Research Experience', 'Industry Experience', 'Administrative Experience'). Only return this if work experience is clearly categorized in the document. Otherwise, leave blank."
+              "description": "Type or category of experience as explicitly labelled in the document (e.g., 'Teaching Experience', 'Research Experience', 'Industry Experience', 'Administrative Experience'). Only return this field if work experience entries are clearly grouped under category headings in the document. Set to null otherwise; do not infer categories."
             },
             "jobTitle": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Job title/position"
+              "description": "Job title or position held, as stated in the document (e.g., 'Senior Software Engineer', 'Research Assistant', 'Associate Professor'). Extract exactly as written."
             },
             "isCurrent": {
               "type": "boolean",
               "evaluation_config": "boolean_exact",
-              "description": "Whether this is current position"
+              "description": "Whether this is the candidate's current position. Set to true if the document indicates 'Present', 'Current', or no end date; false otherwise."
             },
             "description": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Description or responsibilities for the role, including any additional information included in the resume under this job title/position"
+              "description": "Description, responsibilities, achievements, or any additional information listed under this job title/position in the resume. Extract the full text as presented, preserving bullet points or key accomplishments."
             }
           }
         },
-        "description": "Work experience history. For academic resumes, this should include teaching experience, research experience, academic appointments and other relevant experience."
+        "description": "Work experience history, listed in the order presented in the document. For academic resumes, this should include teaching experience, research experience, academic appointments, and other relevant experience. Each entry represents one distinct role or position."
       },
       "certificationsAndAwards": {
         "type": "array",
@@ -254,31 +257,32 @@
         "items": {
           "type": "object",
           "properties": {
+            "array_index": {"type": "integer", "evaluation_config": "integer_exact"},
             "date": {
               "type": "string",
               "evaluation_config": "string_exact",
-              "description": "Date when credential was awarded or obtained"
+              "description": "Date when the credential was awarded or obtained, as stated in the document. Use the format as presented (e.g., '2023', 'March 2022', '2021-06')."
             },
             "category": {
               "anyOf": [
                 {"type": "string", "evaluation_config": "string_semantic"},
                 {"type": "null"}
               ],
-              "description": "Type of credential (e.g., 'Certification', 'Award', 'Membership', 'License', 'Honor', 'Affiliation')."
+              "description": "Type of credential, inferred from context (e.g., 'Certification', 'Award', 'Membership', 'License', 'Honor', 'Affiliation', 'Fellowship'). Set to null if the type cannot be determined from the document."
             },
             "description": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Description of the certification, award, membership, etc."
+              "description": "Name and description of the certification, award, membership, honor, or affiliation as stated in the document. Include any additional detail provided (e.g., 'AWS Certified Solutions Architect - Associate', 'Best Paper Award')."
             },
             "organization": {
               "type": "string",
               "evaluation_config": "string_semantic",
-              "description": "Organization associated with the credential"
+              "description": "Issuing or granting organisation associated with the credential (e.g., 'Amazon Web Services', 'IEEE', 'ACM'). Extract as stated in the document."
             }
           }
         },
-        "description": "Professional certifications, licenses, awards, honors, memberships, and affiliations"
+        "description": "Professional certifications, licenses, awards, honors, memberships, fellowships, and affiliations listed on the resume. Extract all entries found in the document, preserving the order as presented."
       }
     }
   }

@@ -5,7 +5,7 @@
       "type": "object",
       "properties": {
         "lenders": {
-          "description": "All legal entities or individuals providing credit facilities under this agreement, including initial lenders and any assignees",
+          "description": "All legal entities or individuals providing credit facilities under this agreement, including initial lenders and any assignees. Extract every named lender entity from the document, preserving the full legal name as stated.",
           "evaluation_config": "array_llm",
           "type": "array",
           "items": {
@@ -13,7 +13,7 @@
           }
         },
         "administrative_agent": {
-          "description": "The financial institution designated to administer the credit facilities, manage payments, and coordinate between borrower and lenders",
+          "description": "The financial institution designated to administer the credit facilities, manage payments, and coordinate between borrower and lenders. Extract the full legal name as stated in the agreement. Return null if no administrative agent is identified.",
           "evaluation_config": "string_fuzzy",
           "anyOf": [
             {
@@ -25,12 +25,12 @@
           ]
         },
         "borrower": {
-          "description": "The legal entity receiving the credit facility and obligated to repay borrowed amounts plus interest",
+          "description": "The legal entity receiving the credit facility and obligated to repay borrowed amounts plus interest. Extract the full legal name of the borrower as stated in the agreement (e.g., 'Apple Inc.', 'Alphabet Inc.').",
           "evaluation_config": "string_fuzzy",
           "type": "string"
         },
         "lead_arranger": {
-          "description": "The financial institution(s) responsible for structuring, underwriting, and syndicating the credit facility",
+          "description": "The financial institution(s) responsible for structuring, underwriting, and syndicating the credit facility. Extract all named lead arrangers, bookrunners, or syndication agents. Return null if no lead arranger is identified in the document.",
           "evaluation_config": "array_llm",
           "anyOf": [
             {
@@ -45,13 +45,13 @@
           ]
         }
       },
-      "description": "Parties to the credit agreement"
+      "description": "All named parties to the credit agreement, including the borrower, lenders, administrative agent, and lead arrangers. Extract the full legal names as stated in the agreement."
     },
     "terms": {
       "type": "object",
       "properties": {
         "agreement_date": {
-          "description": "Effective date when the credit agreement becomes binding. Return in YYYY-MM-DD format.",
+          "description": "Effective date when the credit agreement becomes binding. Return in ISO 8601 format (YYYY-MM-DD). Extract the date as stated on the cover page or preamble of the agreement. Return null if no effective date is identifiable.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -63,7 +63,7 @@
           ]
         },
         "maturity_date": {
-          "description": "Final date by which all outstanding principal and interest must be repaid. If specified relatively (e.g., 'three years from the effective date'), calculate the absolute date. Return in YYYY-MM-DD format.",
+          "description": "Final date by which all outstanding principal and interest must be repaid under the agreement. If specified relatively (e.g., 'three years from the effective date'), calculate the absolute date using the agreement_date. Return in ISO 8601 format (YYYY-MM-DD). Return null if no maturity date is specified.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -75,7 +75,7 @@
           ]
         },
         "beneficial_ownership_certification_required": {
-          "description": "Whether the agreement explicitly mandates submission of FinCEN Form 314(b) or equivalent beneficial ownership documentation",
+          "description": "Whether the agreement explicitly mandates submission of FinCEN Form 314(b) or equivalent beneficial ownership documentation. Return true if the requirement is explicitly stated, false if explicitly waived, or null if the agreement does not address beneficial ownership certification.",
           "evaluation_config": "boolean_exact",
           "anyOf": [
             {
@@ -87,7 +87,7 @@
           ]
         },
         "governing_law": {
-          "description": "The jurisdiction whose laws govern interpretation and enforcement of the agreement (e.g., 'State of New York', 'England and Wales')",
+          "description": "The jurisdiction whose laws govern interpretation and enforcement of the agreement, as explicitly stated in the governing law clause (e.g., 'State of New York', 'England and Wales'). Extract the jurisdiction name as written. Return null if no governing law clause is found.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -106,7 +106,7 @@
           ],
           "properties": {
             "amount": {
-              "description": "Total aggregate principal amount available for borrowing across all facilities",
+              "description": "Total aggregate principal amount available for borrowing across all facilities, expressed as a raw number without scale factors (e.g., 1000000000 for $1 billion, not 1). Extract the stated commitment amount from the agreement.",
               "anyOf": [
                 {
                   "type": "number"
@@ -118,7 +118,7 @@
               "evaluation_config": "number_exact"
             },
             "currency": {
-              "description": "Three-letter ISO 4217 currency code (e.g., USD, EUR, GBP)",
+              "description": "Three-letter ISO 4217 currency code for the loan commitment (e.g., 'USD', 'EUR', 'GBP'). Normalise to the standard code even if the document uses the full currency name (e.g., 'United States Dollars' becomes 'USD'). Return null if the currency cannot be determined.",
               "anyOf": [
                 {
                   "type": "string"
@@ -130,10 +130,10 @@
               "evaluation_config": "string_case_insensitive"
             }
           },
-          "description": "Total loan commitment under the credit agreement"
+          "description": "Total loan commitment under the credit agreement, comprising the aggregate principal amount and its currency. If multiple facilities exist, this represents the combined total."
         },
         "use_of_proceeds": {
-          "description": "Permitted purposes for which borrowed funds may be used, as specified in the agreement",
+          "description": "Permitted purposes for which borrowed funds may be used, as explicitly specified in the use of proceeds or purpose clause of the agreement. Summarise the stated permitted uses faithfully. Return null if no use of proceeds clause is found.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -145,7 +145,7 @@
           ]
         },
         "borrowing_request": {
-          "description": "Required notice period and submission method for the borrower to request a drawdown (e.g., '3 business days prior via written notice to Administrative Agent')",
+          "description": "Required notice period and submission method for the borrower to request a drawdown, as stated in the borrowing procedures section (e.g., '3 business days prior via written notice to Administrative Agent'). Include the notice period, method, and recipient. Return null if no borrowing request procedure is specified.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -157,7 +157,7 @@
           ]
         },
         "authorized_officer_definition": {
-          "description": "Specific roles, titles, or positions of individuals empowered to execute documents and make binding decisions on behalf of the borrower",
+          "description": "Specific roles, titles, or positions of individuals empowered to execute documents and make binding decisions on behalf of the borrower, as defined in the agreement (e.g., 'CEO, CFO, Treasurer, or any Vice President'). Extract the definition verbatim or faithfully summarise. Return null if no authorized officer definition is provided.",
           "evaluation_config": "string_semantic",
           "anyOf": [
             {
@@ -169,7 +169,7 @@
           ]
         }
       },
-      "description": "All terms, conditions, dates, and financial details"
+      "description": "All key terms, conditions, dates, and financial details of the credit agreement, including commitment amounts, dates, governing law, use of proceeds, and procedural requirements."
     }
   }
 }
