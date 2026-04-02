@@ -6,37 +6,31 @@
   "authors": [
     {
       "name": "Jay Shah",
-      "array_index": 0,
       "email": "jayhshah@colfax-intl.com",
       "affiliation": "Colfax Research"
     },
     {
       "name": "Ganesh Bikshandi",
-      "array_index": 1,
       "email": "ganesh@colfax-intl.com",
       "affiliation": "Colfax Research"
     },
     {
       "name": "Ying Zhang",
-      "array_index": 2,
       "email": "yingz@meta.com",
       "affiliation": "Meta"
     },
     {
       "name": "Vijay Thakkar",
-      "array_index": 3,
       "email": "vithakkar@nvidia.com",
       "affiliation": "NVIDIA / Georgia Tech"
     },
     {
       "name": "Pradeep Ramani",
-      "array_index": 4,
       "email": "prraman@nvidia.com",
       "affiliation": "NVIDIA"
     },
     {
       "name": "Tri Dao",
-      "array_index": 5,
       "email": "tri@tridao.me",
       "affiliation": "Princeton University / Together AI"
     }

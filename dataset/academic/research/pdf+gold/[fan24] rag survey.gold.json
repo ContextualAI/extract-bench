@@ -6,49 +6,41 @@
   "authors": [
     {
       "name": "Wenqi Fan",
-      "array_index": 0,
       "email": "wenqifan03@gmail.com",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Yujuan Ding",
-      "array_index": 1,
       "email": "dingyujuan385@gmail.com",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Liangbo Ning",
-      "array_index": 2,
       "email": "BigLemon1123@gmail.com",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Shijie Wang",
-      "array_index": 3,
       "email": "shijie.wang@connect.polyu.hk",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Hengyun Li",
-      "array_index": 4,
       "email": "neilhengyun.li@polyu.edu.hk",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Dawei Yin",
-      "array_index": 5,
       "email": "yindawei@acm.org",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     },
     {
       "name": "Tat-Seng Chua",
-      "array_index": 6,
       "email": "dcscts@nus.edu.sg",
       "affiliation": "National University of Singapore, Singapore"
     },
     {
       "name": "Qing Li",
-      "array_index": 7,
       "email": "csqli@comp.polyu.edu.hk",
       "affiliation": "The Hong Kong Polytechnic University, HK SAR"
     }

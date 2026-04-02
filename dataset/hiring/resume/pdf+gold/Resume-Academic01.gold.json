@@ -11,7 +11,6 @@
   "socialLinks": [],
   "workExperience": [
     {
-      "array_index": 0,
       "employer": "Sapienza University of Rome, Department of History, Anthropology, Religions, Art and Performing Arts",
       "endDate": null,
       "jobTitle": "Professor Emerita of Art History",
@@ -19,7 +18,6 @@
       "startDate": "2020"
     },
     {
-      "array_index": 1,
       "employer": "Sapienza University of Rome",
       "endDate": "2020",
       "jobTitle": "Full Professor of Art History",
@@ -27,7 +25,6 @@
       "startDate": "1998"
     },
     {
-      "array_index": 2,
       "employer": "University of Bologna, Department of the Arts",
       "endDate": "1998",
       "jobTitle": "Associate Professor",
@@ -35,7 +32,6 @@
       "startDate": "1991"
     },
     {
-      "array_index": 3,
       "employer": "University of Florence",
       "endDate": "1991",
       "jobTitle": "Assistant Professor",
@@ -43,7 +39,6 @@
       "startDate": "1986"
     },
     {
-      "array_index": 4,
       "employer": "University of Siena",
       "endDate": "1986",
       "jobTitle": "Lecturer",
@@ -51,7 +46,6 @@
       "startDate": "1982"
     },
     {
-      "array_index": 5,
       "employer": "Getty Research Institute, Los Angeles",
       "endDate": "2016",
       "jobTitle": "Visiting Professor",
@@ -60,7 +54,6 @@
       "description": "full year"
     },
     {
-      "array_index": 6,
       "employer": "Princeton University, Department of Art and Archaeology",
       "endDate": "Spring 2010",
       "jobTitle": "Visiting Professor",
@@ -68,7 +61,6 @@
       "startDate": "Spring 2010"
     },
     {
-      "array_index": 7,
       "employer": "Yale University, Department of the History of Art",
       "endDate": "Fall 2004",
       "jobTitle": "Visiting Professor",
@@ -76,7 +68,6 @@
       "startDate": "Fall 2004"
     },
     {
-      "array_index": 8,
       "employer": "The Courtauld Institute of Art, University of London",
       "endDate": "2000",
       "jobTitle": "Visiting Professor",
@@ -84,7 +75,6 @@
       "startDate": "1999"
     },
     {
-      "array_index": 9,
       "employer": "Harvard University, Department of History of Art and Architecture",
       "endDate": "Spring 1995",
       "jobTitle": "Visiting Professor",
@@ -92,7 +82,6 @@
       "startDate": "Spring 1995"
     },
     {
-      "array_index": 10,
       "employer": "Sapienza University of Rome",
       "endDate": 2020,
       "isCurrent": false,
@@ -100,7 +89,6 @@
       "description": "Italian Renaissance Art (undergraduate survey, 150–200 students); Baroque Art in Europe (undergraduate, 80–100 students); Caravaggio and Caravaggism (graduate seminar, 15–20 students); Methods and Theories in Art History (graduate, 20–25 students); Dissertation Seminars for PhD students; Museum Studies Practicum (graduate)"
     },
     {
-      "array_index": 11,
       "employer": "University of Bologna",
       "endDate": 1998,
       "isCurrent": false,
@@ -108,11 +96,9 @@
       "description": "History of Italian Painting 1400–1600; Women Artists in Early Modern Europe; Patronage and Collecting Practices"
     },
     {
-      "array_index": 12,
       "description": "Taught courses in Italian Renaissance and Baroque art, iconography, historiography"
     },
     {
-      "array_index": 13,
       "employer": "Galleria Borghese / Louvre / Met Museum",
       "qualificationTitle": "Lead Curator",
       "endDate": 2022,
@@ -121,7 +107,6 @@
       "description": "Caravaggio and His Legacy – Visited by 850,000+ people"
     },
     {
-      "array_index": 14,
       "employer": "Metropolitan Museum of Art",
       "qualificationTitle": "Co-Curator",
       "endDate": 2018,
@@ -130,7 +115,6 @@
       "description": "The Age of Caravaggio"
     },
     {
-      "array_index": 15,
       "employer": "Artemisia Gentileschi Retrospective",
       "qualificationTitle": "Scientific Director",
       "endDate": 2016,
@@ -139,7 +123,6 @@
       "description": "multiple venues"
     },
     {
-      "array_index": 16,
       "employer": "Uffizi Gallery",
       "qualificationTitle": "Curatorial Advisor",
       "endDate": 2012,
@@ -148,7 +131,6 @@
       "description": "Permanent collection reinstallation"
     },
     {
-      "array_index": 17,
       "employer": "Various Museums Worldwide",
       "qualificationTitle": "Guest Curator",
       "endDate": "NA",
@@ -159,7 +141,6 @@
   ],
   "education": [
     {
-      "array_index": 0,
       "endDate": "1982",
       "startDate": "1978",
       "description": "Dissertation: \"Patronage and Power: The Medici Court and Artistic Production in Late 16th Century Florence\". Supervisor: Prof. Roberto Longhi (posthumously), Prof. Mina Gregori",
@@ -167,7 +148,6 @@
       "qualificationTitle": "Dottorato di Ricerca (PhD) in Art History"
     },
     {
-      "array_index": 1,
       "endDate": "1978",
       "startDate": "1973",
       "description": "Summa cum laude. Thesis on Caravaggio's early Roman period.",
@@ -175,7 +155,6 @@
       "qualificationTitle": "Laurea in Lettere (MA equivalent)"
     },
     {
-      "array_index": 2,
       "endDate": "1973",
       "startDate": "1968",
       "institution": "Liceo Classico Torquato Tasso, Rome",
@@ -184,161 +163,138 @@
   ],
   "publications": [
     {
-      "array_index": 0,
       "year": "2023",
       "title": "Caravaggio's Legacy: Influence and Innovation in European Baroque Painting",
       "authors": "Rossi, I.",
       "publisher": "Yale University Press"
     },
     {
-      "array_index": 1,
       "year": "2019",
       "title": "Women Patrons and Collectors in Renaissance Italy",
       "authors": "Rossi, I.",
       "publisher": "Cambridge University Press"
     },
     {
-      "array_index": 2,
       "year": "2016",
       "title": "Beyond Borders: Artistic Exchange between Italy and the Low Countries, 1500-1700",
       "authors": "Rossi, I., Schmidt, H.",
       "publisher": "Brill"
     },
     {
-      "array_index": 3,
       "year": "2012",
       "title": "Caravaggio: The Complete Works",
       "authors": "Rossi, I.",
       "publisher": "Phaidon Press"
     },
     {
-      "array_index": 4,
       "year": "2008",
       "title": "Sacred and Profane Love: Art and Devotion in Counter-Reformation Rome",
       "authors": "Rossi, I.",
       "publisher": "University of Chicago Press"
     },
     {
-      "array_index": 5,
       "year": "2004",
       "title": "The Medici Collections: Art, Power and Identity",
       "authors": "Rossi, I., Martinez, A., Chen, L.",
       "publisher": "Electa"
     },
     {
-      "array_index": 6,
       "year": "1997",
       "title": "Artemisia Gentileschi and the Authority of Art",
       "authors": "Rossi, I.",
       "publisher": "Pennsylvania State University Press"
     },
     {
-      "array_index": 7,
       "year": "1989",
       "title": "Light and Shadow: Caravaggio's Roman Period, 1592-1606",
       "authors": "Rossi, I.",
       "publisher": "Princeton University Press"
     },
     {
-      "array_index": 8,
       "year": "2024",
       "title": "New Attributions and Technical Evidence: Reassessing Caravaggio's Workshop Practices",
       "authors": "Rossi, I.",
       "publisher": "The Burlington Magazine"
     },
     {
-      "array_index": 9,
       "year": "2023",
       "title": "Transnational Patronage Networks in Early Modern Europe: New Documentary Evidence",
       "authors": "Rossi, I., Li, W.",
       "publisher": "Art Bulletin"
     },
     {
-      "array_index": 10,
       "year": "2022",
       "title": "Gender, Agency, and Artistic Production in Seventeenth-Century Rome",
       "authors": "Rossi, I.",
       "publisher": "Renaissance Quarterly"
     },
     {
-      "array_index": 11,
       "year": "2022",
       "title": "Caravaggio's Judith Beheading Holofernes: New Technical Analysis and Conservation Findings",
       "authors": "Martinez, A., Rossi, I.",
       "publisher": "Studies in Conservation"
     },
     {
-      "array_index": 12,
       "year": "2021",
       "title": "The Cardinal's Collection: Francesco Maria del Monte and the Formation of Baroque Taste",
       "authors": "Rossi, I.",
       "publisher": "Journal of the History of Collections"
     },
     {
-      "array_index": 13,
       "year": "2020",
       "title": "Rethinking the Sacred-Profane Divide in Counter-Reformation Art",
       "authors": "Rossi, I., Johnson, R.",
       "publisher": "Art History"
     },
     {
-      "array_index": 14,
       "year": "2019",
       "title": "Material Culture and Devotional Practice in Early Modern Italy",
       "authors": "Rossi, I.",
       "publisher": "Renaissance Studies"
     },
     {
-      "array_index": 15,
       "year": "2018",
       "title": "Caravaggio's Narcissus: Iconography, Patronage, and Meaning",
       "authors": "Rossi, I.",
       "publisher": "Artibus et Historiae"
     },
     {
-      "array_index": 16,
       "year": "2017",
       "title": "Digital Humanities and Art History: New Methodologies for Studying Patronage Networks",
       "authors": "Chen, L., Rossi, I., Schmidt, H.",
       "publisher": "International Journal for Digital Art History"
     },
     {
-      "array_index": 17,
       "year": "2016",
       "title": "The Contarelli Chapel Commission: New Archival Documents",
       "authors": "Rossi, I.",
       "publisher": "Mitteilungen des Kunsthistorischen Institutes in Florenz"
     },
     {
-      "array_index": 18,
       "year": "2015",
       "title": "Artemisia Gentileschi Reconsidered: Agency, Authorship, and Recent Scholarship",
       "authors": "Rossi, I.",
       "publisher": "Woman's Art Journal"
     },
     {
-      "array_index": 19,
       "year": "2013",
       "title": "Technical Analysis and the Attribution Problem: Case Studies from Caravaggio's Circle",
       "authors": "Rossi, I., Martinez, A.",
       "publisher": "Metropolitan Museum Journal"
     },
     {
-      "array_index": 20,
       "year": "2011",
       "title": "Collecting Caravaggio: The Formation of Early Modern Taste",
       "authors": "Rossi, I.",
       "publisher": "Journal of the Warburg and Courtauld Institutes"
     },
     {
-      "array_index": 21,
       "year": "2009",
       "title": "The Artist as Theologian: Religious Iconography in Caravaggio's Late Works.",
       "authors": "Rossi, I.",
       "publisher": "Zeitschrift für Kunstgeschichte"
     },
     {
-      "array_index": 22,
       "year": "2006",
       "title": "Cultural Exchange and Artistic Innovation: Italian Artists in the Netherlands.",
       "authors": "Rossi, I.",
@@ -347,222 +303,185 @@
   ],
   "certificationsAndAwards": [
     {
-      "array_index": 0,
       "category": "Fellowship",
       "organization": "Institute for Advanced Study, Princeton",
       "description": "Member, Institute for Advanced Study, Princeton – Fellowship",
       "date": "2019–2020"
     },
     {
-      "array_index": 1,
       "category": "Fellowship",
       "organization": "National Endowment for the Humanities",
       "description": "National Endowment for the Humanities Fellowship – $60,000",
       "date": "2016–2017"
     },
     {
-      "array_index": 2,
       "category": "Fellowship",
       "organization": "Guggenheim",
       "description": "Guggenheim Fellowship",
       "date": "2013–2014"
     },
     {
-      "array_index": 3,
       "category": "Fellowship",
       "organization": "Getty Research Institute",
       "description": "Getty Research Institute Residential Scholar",
       "date": "2015–2016"
     },
     {
-      "array_index": 4,
       "category": "Fellowship",
       "organization": "Kress Foundation",
       "description": "Kress Foundation Senior Fellowship",
       "date": "2010–2011"
     },
     {
-      "array_index": 5,
       "category": "Fellowship",
       "organization": "Villa I Tatti, Harvard University Center for Italian Renaissance Studies",
       "description": "Fellowship at Villa I Tatti, Harvard University Center for Italian Renaissance Studies",
       "date": "2005–2006"
     },
     {
-      "array_index": 6,
       "category": "Grant",
       "organization": "Fulbright Program",
       "description": "Fulbright Research Scholar Grant",
       "date": "1992–1993"
     },
     {
-      "array_index": 7,
       "category": "Fellowship",
       "organization": "American Council of Learned Societies",
       "description": "American Council of Learned Societies Fellowship",
-      "date": 1989
+      "date": "1989"
     },
     {
-      "array_index": 8,
       "category": "Grant",
       "organization": "Samuel H. Kress Foundation",
       "description": "Samuel H. Kress Foundation Research Grant (multiple years: 1985, 1988, 1994, 1998, 2003)",
       "date": "1985, 1988, 1994, 1998, 2003"
     },
     {
-      "array_index": 9,
       "category": "Grant",
       "organization": "Italian Ministry of University and Research",
       "description": "PRIN Grants as PI (1997, 2002, 2008, 2012) – Total €850,000",
       "date": "1997, 2002, 2008, 2012"
     },
     {
-      "array_index": 10,
       "category": "Grant",
       "organization": "European Research Council",
       "description": "European Research Council Advanced Grant – €1,200,000",
       "date": "2009–2014"
     },
     {
-      "array_index": 11,
       "organization": "Ordre des Arts et des Lettres, France",
       "description": "Commandeur de l'Ordre des Arts et des Lettres",
-      "date": 2022
+      "date": "2022"
     },
     {
-      "array_index": 12,
       "category": "Award",
       "organization": "College Art Association",
       "description": "Lifetime Achievement Award",
-      "date": 2021
+      "date": "2021"
     },
     {
-      "array_index": 13,
       "organization": "Premio Salimbeni",
       "description": "Premio Salimbeni per la Storia dell'Arte",
-      "date": 2019
+      "date": "2019"
     },
     {
-      "array_index": 14,
       "category": "Membership",
       "organization": "American Academy of Arts and Sciences",
-      "date": 2017
+      "date": "2017"
     },
     {
-      "array_index": 15,
       "category": "Membership",
       "organization": "Accademia Nazionale dei Lincei",
-      "date": 2015
+      "date": "2015"
     },
     {
-      "array_index": 16,
       "category": "Corresponding Membership",
       "organization": "British Academy",
-      "date": 2012
+      "date": "2012"
     },
     {
-      "array_index": 17,
       "organization": "Accademia dei Lincei",
       "description": "Premio Pascoli",
-      "date": 2010
+      "date": "2010"
     },
     {
-      "array_index": 18,
       "category": "Honorary Doctorate",
       "organization": "University of Edinburgh",
-      "date": 2009
+      "date": "2009"
     },
     {
-      "array_index": 19,
       "organization": "Medaglia d'Oro ai Benemeriti della Cultura",
       "description": "Italian Republic",
-      "date": 2008
+      "date": "2008"
     },
     {
-      "array_index": 20,
       "description": "Mitchell Prize for Art History",
-      "date": 2005
+      "date": "2005"
     },
     {
-      "array_index": 21,
       "category": "Nomination",
       "organization": "Balzan Prize",
-      "date": 2003
+      "date": "2003"
     },
     {
-      "array_index": 22,
       "description": "Premio Marzotto per la Cultura Europea",
-      "date": 1999
+      "date": "1999"
     },
     {
-      "array_index": 23,
       "organization": "American Academy in Rome",
       "description": "Fellow"
     },
     {
-      "array_index": 24,
       "organization": "American Academy of Arts and Sciences",
       "description": "Member"
     },
     {
-      "array_index": 25,
       "description": "Corresponding Member",
       "organization": "British Academy"
     },
     {
-      "array_index": 26,
       "organization": "Renaissance Society of America",
       "description": "Member"
     },
     {
-      "array_index": 27,
       "organization": "College Art Association",
       "description": "Member"
     },
     {
-      "array_index": 28,
       "organization": "Association of Art Historians (UK)",
       "description": "Member"
     },
     {
-      "array_index": 29,
       "organization": "Comité International d'Histoire de l'Art",
       "description": "Member"
     }
   ],
   "other": [
     {
-      "array_index": 0,
       "content": "Italian Renaissance and Baroque painting (15th-17th centuries); Caravaggio and Caravaggism; Artistic patronage and collecting practices; Cultural exchange between Italy and Northern Europe; Gender and art in early modern Italy; Conservation and technical art history; Reception history and historiography of Italian art; Sacred and profane imagery in Counter-Reformation Rome",
       "sectionTitle": "RESEARCH AREAS"
     },
     {
-      "array_index": 1,
       "content": "- Rossi, I. (ed.) (2021). *Caravaggio and His Followers in Rome*. Exhibition catalogue, Galleria\nBorghese/Louvre. Officina Libraria, 456 pp.\n- Rossi, I. & Schmidt, H. (2018). *The Age of Caravaggio*. Exhibition catalogue, Metropolitan\nMuseum of Art. Yale University Press, 380 pp.\n- Rossi, I. (2015). *Artemisia Gentileschi: Power and Passion*. Exhibition catalogue, Palazzo\nBraschi, Rome. Skira, 320 pp.\n- Multiple catalogue essays for major exhibitions at Uffizi Gallery, National Gallery London, Prado\nMuseum (1990-2024)",
       "sectionTitle": "EXHIBITION CATALOGUES"
     },
     {
-      "array_index": 2,
       "content": "Over 80 contributed chapters and encyclopedia entries including contributions to Grove Art Online,\nOxford Art Online, and major edited volumes on Renaissance and Baroque art.",
       "sectionTitle": "BOOK CHAPTERS & ENCYCLOPEDIA ENTRIES"
     },
     {
-      "array_index": 3,
       "content": "Doctoral Students - Completed: 34\n\nSelected recent completions:\n- Dr. Marco Bellini (2017-2022): \"Caravaggio's Northern Followers\" - Now Associate Professor,\nUniversity of Amsterdam\n- Dr. Laura Ferretti (2014-2020): \"Women Collectors in 17th Century Rome\" - Now Curator,\nGalleria Nazionale d'Arte Antica\n- Dr. Hans Mueller (2013-2019): \"Artistic Exchange Netherlands-Italy\" - Now Senior Lecturer,\nUniversity of Leiden\n- Dr. Elena Bianchi (2012-2018): \"Sacred Art in Counter-Reformation\" - Now Associate Professor,\nUniversity of Padua\n- Dr. James Foster (2010-2016): \"Caravaggio's Technique and Materials\" - Now Conservation\nScientist, Getty Conservation Institute\n\nCurrent PhD Students: 3\nMA/Laurea Magistrale Students: Supervised over 120 thesis projects (1986-2020)",
       "sectionTitle": "GRADUATE SUPERVISION"
     },
     {
-      "array_index": 4,
       "content": "Editorial Boards:\n- Editor-in-Chief, *Arte Lombarda* (2010-2018)\n- Editorial Board, *Art Bulletin* (2005-2015)\n- Editorial Board, *Renaissance Studies* (2000-2012)\n- Editorial Board, *Journal of the History of Collections* (1998-2010)\n- Advisory Editor, *Burlington Magazine* (2012-Present)\n- Editorial Advisory Board, *Artibus et Historiae* (1995-Present)\n\nProfessional Leadership:\n- President, International Association of Art Historians (CIHA) (2012-2016)\n- Vice President, Comité International d'Histoire de l'Art (2008-2012)\n- Board Member, College Art Association (2004-2010)\n- President, Renaissance Society of America (2002-2004)\n\nCommittee Service:\n- Chair, Prix Balzan Selection Committee for Art History (2018-2020)\n- Member, Getty Foundation Council (2014-2020)\n- Member, Kress Foundation Board of Trustees (2010-2018)\n- Numerous PhD examination committees at universities worldwide\n- Grant review panels for NEH, ACLS, Mellon Foundation, Kress Foundation",
       "sectionTitle": "SERVICE TO PROFESSION"
     },
     {
-      "array_index": 5,
       "content": "Extensive reviewing for major publishers (Yale, Princeton, Cambridge, Chicago, Oxford University Presses) and journals. Over 400 manuscript reviews. External examiner for PhD theses at 25+ universities internationally.",
       "sectionTitle": "PEER REVIEW & MANUSCRIPT EVALUATION"
     },
     {
-      "array_index": 6,
       "content": "Over 200 conference presentations and invited lectures at major universities and museums\nworldwide (1982-2024). Recent keynote addresses include:\n- Renaissance Society of America Annual Meeting (2023)\n- College Art Association Annual Conference (2022, 2015, 2008)\n- European Association of Art Historians Congress (2021)\n- International Congress of the History of Art (2016, 2008, 2000)\n- Getty Research Institute Symposium (2019)\n- Clark Art Institute Lecture Series (2018)\n- National Gallery of Art, Washington - A. W. Mellon Lectures (2014)",
       "sectionTitle": "CONFERENCE PRESENTATIONS & KEYNOTES"
     }

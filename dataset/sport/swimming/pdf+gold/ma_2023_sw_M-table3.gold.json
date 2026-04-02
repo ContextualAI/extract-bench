@@ -1,127 +1,123 @@
 {
   "championship": "WORLD AQUATICS MASTERS CHAMPIONSHIPS KYUSHU 2023",
-  "events": [
+  "event_details": {
+    "sex": "MEN",
+    "length": "50m",
+    "category": "Breaststroke"
+  },
+  "age_groups": [
     {
-      "event_details": {
-        "sex": "MEN",
-        "length": "50m",
-        "category": "Breaststroke"
-      },
-      "age_groups": [
+      "age_group": "95-99",
+      "results": [
         {
-          "age_group": "95-99",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Kazuo YASUIKE",
-                "country": "JPN",
-                "year_birth": 1928,
-                "team": "OISO MSC"
-              },
-              "time": "1:29.46"
-            }
-          ]
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Kazuo YASUIKE",
+            "country": "JPN",
+            "year_birth": 1928,
+            "team": "OISO MSC"
+          },
+          "time": "1:29.46"
+        }
+      ]
+    },
+    {
+      "age_group": "90-94",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Yoichiro ARAI",
+            "country": "JPN",
+            "year_birth": 1931,
+            "team": "BIG S SENDAIIZUMI"
+          },
+          "time": "1:09.12"
         },
         {
-          "age_group": "90-94",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Yoichiro ARAI",
-                "country": "JPN",
-                "year_birth": 1931,
-                "team": "BIG S SENDAIIZUMI"
-              },
-              "time": "1:09.12"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Kiyoshi FUJII",
-                "country": "JPN",
-                "year_birth": 1931,
-                "team": "RED SHAKE"
-              },
-              "time": "1:16.36"
-            }
-          ]
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Kiyoshi FUJII",
+            "country": "JPN",
+            "year_birth": 1931,
+            "team": "RED SHAKE"
+          },
+          "time": "1:16.36"
+        }
+      ]
+    },
+    {
+      "age_group": "85-89",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Tony GOODWIN",
+            "country": "AUS",
+            "year_birth": 1937,
+            "team": "Manly Masters Swimming Club"
+          },
+          "time": "45.42"
         },
         {
-          "age_group": "85-89",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Tony GOODWIN",
-                "country": "AUS",
-                "year_birth": 1937,
-                "team": "Manly Masters Swimming Club"
-              },
-              "time": "45.42"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Hirofumi HOSOTANI",
-                "country": "JPN",
-                "year_birth": 1935,
-                "team": "UP SIDE"
-              },
-              "time": "50.85"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Yoshikatsu OSHIKAWA",
-                "country": "JPN",
-                "year_birth": 1934,
-                "team": "RN MIYAZAKI"
-              },
-              "time": "55.88"
-            },
-            {
-              "rank": 4,
-              "athlete_details": {
-                "athlete": "Shigeru INOUE",
-                "country": "JPN",
-                "year_birth": 1936,
-                "team": "HIROSHIMA SEIFU SHINTO"
-              },
-              "time": "1:00.78"
-            },
-            {
-              "rank": 5,
-              "athlete_details": {
-                "athlete": "Lieh Yung CHI",
-                "country": "HKG",
-                "year_birth": 1934,
-                "team": "Sword Fish Club"
-              },
-              "time": "1:08.78"
-            },
-            {
-              "rank": 6,
-              "athlete_details": {
-                "athlete": "Iuliu Eugen Lehel FOLLERT",
-                "country": "ROU",
-                "year_birth": 1938,
-                "team": "Tribeach Brasov"
-              },
-              "time": "1:13.97"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Kazuo HOSOYAMADA",
-                "country": "JPN",
-                "year_birth": 1938,
-                "team": "RE-S AC"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Hirofumi HOSOTANI",
+            "country": "JPN",
+            "year_birth": 1935,
+            "team": "UP SIDE"
+          },
+          "time": "50.85"
+        },
+        {
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Yoshikatsu OSHIKAWA",
+            "country": "JPN",
+            "year_birth": 1934,
+            "team": "RN MIYAZAKI"
+          },
+          "time": "55.88"
+        },
+        {
+          "rank": 4,
+          "athlete_details": {
+            "athlete": "Shigeru INOUE",
+            "country": "JPN",
+            "year_birth": 1936,
+            "team": "HIROSHIMA SEIFU SHINTO"
+          },
+          "time": "1:00.78"
+        },
+        {
+          "rank": 5,
+          "athlete_details": {
+            "athlete": "Lieh Yung CHI",
+            "country": "HKG",
+            "year_birth": 1934,
+            "team": "Sword Fish Club"
+          },
+          "time": "1:08.78"
+        },
+        {
+          "rank": 6,
+          "athlete_details": {
+            "athlete": "Iuliu Eugen Lehel FOLLERT",
+            "country": "ROU",
+            "year_birth": 1938,
+            "team": "Tribeach Brasov"
+          },
+          "time": "1:13.97"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Kazuo HOSOYAMADA",
+            "country": "JPN",
+            "year_birth": 1938,
+            "team": "RE-S AC"
+          },
+          "time": "DNS"
         }
       ]
     }

@@ -59,6 +59,9 @@
                 "evaluation_config": "string_semantic"
               }
             }
+          },
+          {
+            "type": "null"
           }
         ]
       },
@@ -201,7 +204,6 @@
         "evaluation_config": "array_llm",
         "items": {
           "type": "object",
-          "required": ["description"],
           "properties": {
             "employer": {
               "type": "string",

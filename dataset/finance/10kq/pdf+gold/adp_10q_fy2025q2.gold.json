@@ -1532,7 +1532,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "USD",
         "scale": 1000000,
         "value": 0.9
       },
@@ -1541,7 +1541,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "USD",
         "scale": 1000000,
         "value": 2.4
       },
@@ -1550,7 +1550,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "USD",
         "scale": 1000000,
         "value": 1.1
       },
@@ -1559,7 +1559,7 @@
         "metric_type": "actual",
         "segment_type": "company",
         "segment_name": "NA",
-        "unit": 1,
+        "unit": "USD",
         "scale": 1000000,
         "value": 2.1
       }

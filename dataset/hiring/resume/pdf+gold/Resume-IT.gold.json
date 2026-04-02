@@ -1,7 +1,6 @@
 {
   "education": [
     {
-      "array_index": 0,
       "endDate": "June 2016",
       "startDate": "September 2012",
       "description": "GPA: 3.7/4.0\nRelevant coursework: Algorithms, Database Systems, Machine Learning, Distributed Systems",
@@ -15,8 +14,14 @@
     "German (Intermediate)"
   ],
   "personalInfo": {
-    "emails": "marcus.chen@devmail.com",
-    "phones": "987123456",
+    "contact": {
+      "emails": [
+        "marcus.chen@devmail.com"
+      ],
+      "phones": [
+        "987123456"
+      ]
+    },
     "fullName": "Marcus Chen",
     "personalStatement": "Full-stack software engineer with 8+ years of experience building scalable web applications and cloud-based solutions."
   },
@@ -25,11 +30,9 @@
   "publications": [],
   "certificationsAndAwards": [
     {
-      "array_index": 0,
       "description": "Cloud Solutions Architect - Professional Level"
     },
     {
-      "array_index": 1,
       "description": "Database Administrator Certification"
     }
   ],
@@ -83,7 +86,6 @@
   ],
   "workExperience": [
     {
-      "array_index": 0,
       "employer": "NexaTech Solutions",
       "endDate": null,
       "jobTitle": "Senior Software Engineer",
@@ -92,7 +94,6 @@
       "description": "Architected and developed microservices platform serving 2M+ daily active users\nLed migration from monolithic architecture to containerized infrastructure\nMentored team of 6 junior developers and conducted code reviews\nReduced API response times by 45% through optimization and caching strategies"
     },
     {
-      "array_index": 1,
       "employer": "CloudFlow Systems",
       "endDate": "December 2020",
       "jobTitle": "Software Developer",
@@ -101,7 +102,6 @@
       "description": "Built real-time data processing pipeline handling 500K events per second\nImplemented CI/CD pipelines reducing deployment time by 60%\nDeveloped RESTful APIs and GraphQL endpoints for mobile applications\nCollaborated with product team to define technical requirements and roadmap"
     },
     {
-      "array_index": 2,
       "employer": "VentureSpace Digital",
       "endDate": "February 2018",
       "jobTitle": "Junior Developer",

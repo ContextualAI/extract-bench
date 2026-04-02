@@ -1,13 +1,48 @@
 {
   "type": "object",
   "properties": {
+    "championship": {
+      "type": "string",
+      "description": "Name of the championship or competition (e.g., 'WORLD AQUATICS MASTERS CHAMPIONSHIPS KYUSHU 2023').",
+      "evaluation_config": "string_fuzzy"
+    },
+    "event_details": {
+      "type": "object",
+      "description": "Details of the swimming event.",
+      "properties": {
+        "sex": {
+          "type": "string",
+          "description": "Gender category (e.g., 'MEN', 'WOMEN').",
+          "evaluation_config": "string_case_insensitive"
+        },
+        "length": {
+          "type": "string",
+          "description": "Race distance (e.g., '50m', '100m', '200m').",
+          "evaluation_config": "string_exact"
+        },
+        "category": {
+          "type": "string",
+          "description": "Swimming stroke or discipline (e.g., 'Freestyle', 'Backstroke', 'Butterfly', 'Breaststroke', 'Individual Medley').",
+          "evaluation_config": "string_exact"
+        }
+      }
+    },
     "age_groups": {
       "type": "array",
+      "description": "Results grouped by age bracket. Each entry contains the age group label and the ranked results for that group.",
+      "evaluation_config": "array_llm",
       "items": {
         "type": "object",
         "properties": {
+          "age_group": {
+            "type": "string",
+            "description": "Age bracket label (e.g., '25-29', '90-94').",
+            "evaluation_config": "string_exact"
+          },
           "results": {
             "type": "array",
+            "description": "Ranked list of athletes and their performances in this age group.",
+            "evaluation_config": "array_llm",
             "items": {
               "type": "object",
               "properties": {
@@ -20,10 +55,12 @@
                       "type": "string"
                     }
                   ],
+                  "description": "Finishing position (integer), or 'NA' for DNS/DQ.",
                   "evaluation_config": "string_semantic"
                 },
                 "time": {
                   "type": "string",
+                  "description": "Recorded time (e.g., '44.01', '1:03.28') or 'DNS'/'DQ' if the athlete did not start or was disqualified.",
                   "evaluation_config": "string_exact"
                 },
                 "records": {
@@ -31,73 +68,52 @@
                     {
                       "type": "array",
                       "items": {
+                        "type": "string",
                         "enum": [
                           "WR",
                           "CR",
                           "NR",
                           "AR",
                           "ER"
-                        ],
-                        "type": "string"
+                        ]
                       }
                     },
                     {
                       "type": "null"
                     }
                   ],
+                  "description": "Records set by this performance: WR (World Record), CR (Championship Record), NR (National Record), AR (Americas Record), ER (European Record). Null if no records.",
                   "evaluation_config": "array_llm"
                 },
                 "athlete_details": {
                   "type": "object",
+                  "description": "Information about the athlete.",
                   "properties": {
-                    "team": {
-                      "type": "string",
-                      "evaluation_config": "string_fuzzy"
-                    },
                     "athlete": {
                       "type": "string",
+                      "description": "Full name of the athlete (e.g., 'Fusao TAKAHASHI').",
                       "evaluation_config": "string_fuzzy"
                     },
                     "country": {
                       "type": "string",
+                      "description": "Three-letter country code (e.g., 'JPN', 'USA', 'GER').",
                       "evaluation_config": "string_semantic"
                     },
                     "year_birth": {
                       "type": "integer",
+                      "description": "Year of birth (e.g., 1933).",
                       "evaluation_config": "integer_exact"
+                    },
+                    "team": {
+                      "type": "string",
+                      "description": "Team or club name (e.g., 'JUMP', 'Berliner TSC').",
+                      "evaluation_config": "string_fuzzy"
                     }
                   }
                 }
               }
-            },
-            "evaluation_config": "array_llm"
-          },
-          "age_group": {
-            "type": "string",
-            "evaluation_config": "string_exact"
+            }
           }
-        }
-      },
-      "evaluation_config": "array_llm"
-    },
-    "championship": {
-      "type": "string",
-      "evaluation_config": "string_fuzzy"
-    },
-    "event_details": {
-      "type": "object",
-      "properties": {
-        "sex": {
-          "type": "string",
-          "evaluation_config": "string_case_insensitive"
-        },
-        "length": {
-          "type": "string",
-          "evaluation_config": "string_exact"
-        },
-        "category": {
-          "type": "string",
-          "evaluation_config": "string_exact"
         }
       }
     }

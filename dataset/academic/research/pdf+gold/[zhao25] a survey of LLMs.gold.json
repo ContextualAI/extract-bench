@@ -5,92 +5,70 @@
   "publication_type": "Preprint",
   "authors": [
     {
-      "name": "Wayne Xin Zhao",
-      "array_index": 0
+      "name": "Wayne Xin Zhao"
     },
     {
-      "name": "Kun Zhou",
-      "array_index": 1
+      "name": "Kun Zhou"
     },
     {
-      "name": "Junyi Li",
-      "array_index": 2
+      "name": "Junyi Li"
     },
     {
-      "name": "Tianyi Tang",
-      "array_index": 3
+      "name": "Tianyi Tang"
     },
     {
-      "name": "Xiaolei Wang",
-      "array_index": 4
+      "name": "Xiaolei Wang"
     },
     {
-      "name": "Yupeng Hou",
-      "array_index": 5
+      "name": "Yupeng Hou"
     },
     {
-      "name": "Yingqian Min",
-      "array_index": 6
+      "name": "Yingqian Min"
     },
     {
-      "name": "Beichen Zhang",
-      "array_index": 7
+      "name": "Beichen Zhang"
     },
     {
-      "name": "Junjie Zhang",
-      "array_index": 8
+      "name": "Junjie Zhang"
     },
     {
-      "name": "Zican Dong",
-      "array_index": 9
+      "name": "Zican Dong"
     },
     {
-      "name": "Yifan Du",
-      "array_index": 10
+      "name": "Yifan Du"
     },
     {
-      "name": "Chen Yang",
-      "array_index": 11
+      "name": "Chen Yang"
     },
     {
-      "name": "Yushuo Chen",
-      "array_index": 12
+      "name": "Yushuo Chen"
     },
     {
-      "name": "Zhipeng Chen",
-      "array_index": 13
+      "name": "Zhipeng Chen"
     },
     {
-      "name": "Jinhao Jiang",
-      "array_index": 14
+      "name": "Jinhao Jiang"
     },
     {
-      "name": "Ruiyang Ren",
-      "array_index": 15
+      "name": "Ruiyang Ren"
     },
     {
-      "name": "Yifan Li",
-      "array_index": 16
+      "name": "Yifan Li"
     },
     {
-      "name": "Xinyu Tang",
-      "array_index": 17
+      "name": "Xinyu Tang"
     },
     {
-      "name": "Zikang Liu",
-      "array_index": 18
+      "name": "Zikang Liu"
     },
     {
-      "name": "Peiyu Liu",
-      "array_index": 19
+      "name": "Peiyu Liu"
     },
     {
-      "name": "Jian-Yun Nie",
-      "array_index": 20
+      "name": "Jian-Yun Nie"
     },
     {
-      "name": "Ji-Rong Wen",
-      "array_index": 21
+      "name": "Ji-Rong Wen"
     }
   ],
   "abstract": "Ever since the Turing Test was proposed in the 1950s, humans have explored the mastering of language intelligence by machine. Language is essentially a complex, intricate system of human expressions governed by grammatical rules. It poses a significant challenge to develop capable artificial intelligence (AI) algorithms for comprehending and grasping a language. As a major approach, language modeling has been widely studied for language understanding and generation in the past two decades, evolving from statistical language models to neural language models. Recently, pre-trained language models (PLMs) have been proposed by pretraining Transformer models over large-scale corpora, showing strong capabilities in solving various natural language processing (NLP) tasks. Since the researchers have found that model scaling can lead to an improved model capacity, they further investigate the scaling effect by increasing the parameter scale to an even larger size. Interestingly, when the parameter scale exceeds a certain level, these enlarged language models not only achieve a significant performance improvement, but also exhibit some special abilities (e.g., incontext learning) that are not present in small-scale language models (e.g., BERT). To discriminate the language models in different parameter scales, the research community has coined the term large language models (LLM) for the PLMs of significant size (e.g., containing tens or hundreds of billions of parameters). Recently, the research on LLMs has been largely advanced by both academia and industry, and a remarkable progress is the launch of ChatGPT (a powerful AI chatbot developed based on LLMs), which has attracted widespread attention from society. The technical evolution of LLMs has been making an important impact on the entire AI community, which would revolutionize the way how we develop and use AI algorithms. Considering this rapid technical progress, in this survey, we review the recent advances of LLMs by introducing the background, key findings, and mainstream techniques. In particular, we focus on four major aspects of LLMs, namely pre-training, adaptation tuning, utilization, and capacity evaluation. Furthermore, we also summarize the available resources for developing LLMs and discuss the remaining issues for future directions. This survey provides an up-to-date review of the literature on LLMs, which can be a useful resource for both researchers and engineers.",

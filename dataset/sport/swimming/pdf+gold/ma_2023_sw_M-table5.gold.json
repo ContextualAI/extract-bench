@@ -1,262 +1,258 @@
 {
   "championship": "WORLD AQUATICS MASTERS CHAMPIONSHIPS KYUSHU 2023",
-  "events": [
+  "event_details": {
+    "sex": "MEN",
+    "length": "50m",
+    "category": "Individual Medley"
+  },
+  "age_groups": [
     {
-      "event_details": {
-        "sex": "MEN",
-        "length": "50m",
-        "category": "Individual Medley"
-      },
-      "age_groups": [
+      "age_group": "90-94",
+      "results": [
         {
-          "age_group": "90-94",
-          "results": [
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Carlos SALAZAR FLORES",
-                "country": "MEX",
-                "year_birth": 1933,
-                "team": "CLUB BANCARIO DE GUADALAJARA"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Carlos SALAZAR FLORES",
+            "country": "MEX",
+            "year_birth": 1933,
+            "team": "CLUB BANCARIO DE GUADALAJARA"
+          },
+          "time": "DNS"
+        }
+      ]
+    },
+    {
+      "age_group": "85-89",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Tony GOODWIN",
+            "country": "AUS",
+            "year_birth": 1937,
+            "team": "Manly Masters Swimming Club"
+          },
+          "time": "3:56.67"
+        }
+      ]
+    },
+    {
+      "age_group": "80-84",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Gershon SHEFA",
+            "country": "ISR",
+            "year_birth": 1943,
+            "team": "Aquatikim"
+          },
+          "time": "3:21.37"
         },
         {
-          "age_group": "85-89",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Tony GOODWIN",
-                "country": "AUS",
-                "year_birth": 1937,
-                "team": "Manly Masters Swimming Club"
-              },
-              "time": "3:56.67"
-            }
-          ]
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Koutarou YUGAWA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "NAGASAKISC"
+          },
+          "time": "3:42.96"
         },
         {
-          "age_group": "80-84",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Gershon SHEFA",
-                "country": "ISR",
-                "year_birth": 1943,
-                "team": "Aquatikim"
-              },
-              "time": "3:21.37"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Koutarou YUGAWA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "NAGASAKISC"
-              },
-              "time": "3:42.96"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Kihei YOSHIMURA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "ISLAND TAKATSUKI"
-              },
-              "time": "3:43.02"
-            },
-            {
-              "rank": 4,
-              "athlete_details": {
-                "athlete": "Takeki UESUGI",
-                "country": "JPN",
-                "year_birth": 1942,
-                "team": "TEAM SOURIN"
-              },
-              "time": "3:43.35"
-            },
-            {
-              "rank": 5,
-              "athlete_details": {
-                "athlete": "Takahiro TAKIMOTO",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "RILA HITACHI"
-              },
-              "time": "3:53.12"
-            },
-            {
-              "rank": 6,
-              "athlete_details": {
-                "athlete": "Joaquin CANALES",
-                "country": "ESP",
-                "year_birth": 1940,
-                "team": "R.C. MEDITERRANEO"
-              },
-              "time": "4:01.83"
-            },
-            {
-              "rank": 7,
-              "athlete_details": {
-                "athlete": "Zeev SHABTAY",
-                "country": "ISR",
-                "year_birth": 1941,
-                "team": "Aquatikim"
-              },
-              "time": "4:02.27"
-            },
-            {
-              "rank": 8,
-              "athlete_details": {
-                "athlete": "Masamichi OGAWA",
-                "country": "JPN",
-                "year_birth": 1942,
-                "team": "KONAMI IKOMA"
-              },
-              "time": "4:16.93"
-            },
-            {
-              "rank": 9,
-              "athlete_details": {
-                "athlete": "Alfred Otto SEEGER",
-                "country": "GER",
-                "year_birth": 1940,
-                "team": "TSV Lindau"
-              },
-              "time": "4:23.51"
-            },
-            {
-              "rank": 10,
-              "athlete_details": {
-                "athlete": "Masaji NAGASHIMA",
-                "country": "JPN",
-                "year_birth": 1942,
-                "team": "BEAU SIRENE"
-              },
-              "time": "4:35.59"
-            },
-            {
-              "rank": 11,
-              "athlete_details": {
-                "athlete": "Takashi OKABE",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "WINGS"
-              },
-              "time": "4:45.08"
-            },
-            {
-              "rank": 12,
-              "athlete_details": {
-                "athlete": "Michael READ",
-                "country": "GBR",
-                "year_birth": 1941,
-                "team": "Brighton SC"
-              },
-              "time": "5:00.41"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Hisayuki SHIMOMURA",
-                "country": "JPN",
-                "year_birth": 1942,
-                "team": "SPL KANI"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Kihei YOSHIMURA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "ISLAND TAKATSUKI"
+          },
+          "time": "3:43.02"
         },
         {
-          "age_group": "75-79",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Osamu KUMAGAI",
-                "country": "JPN",
-                "year_birth": 1947,
-                "team": "FITTA MATSUYAMA"
-              },
-              "time": "3:20.20"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Michael MACMANUS",
-                "country": "JPN",
-                "year_birth": 1946,
-                "team": "ITOMAN MUKAIYAMA"
-              },
-              "time": "3:31.67"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Yuichi SHIMOTSU",
-                "country": "JPN",
-                "year_birth": 1944,
-                "team": "PAL OTA"
-              },
-              "time": "3:43.35"
-            },
-            {
-              "rank": 4,
-              "athlete_details": {
-                "athlete": "Fernando CANEPA BUSTAMANTE",
-                "country": "PER",
-                "year_birth": 1947,
-                "team": "PERU MASTER \u2013 Swim"
-              },
-              "time": "3:53.54"
-            },
-            {
-              "rank": 5,
-              "athlete_details": {
-                "athlete": "Kenji HIROBAYASHI",
-                "country": "JPN",
-                "year_birth": 1948,
-                "team": "KYUSHU UNIVERSITY MASTERS"
-              },
-              "time": "4:14.29"
-            },
-            {
-              "rank": 6,
-              "athlete_details": {
-                "athlete": "Morrie CHIANG",
-                "country": "TPE",
-                "year_birth": 1947,
-                "team": "Chinese Taipei Master Swim"
-              },
-              "time": "4:23.36"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "David EDSALL",
-                "country": "USA",
-                "year_birth": 1948,
-                "team": "New England Masters Swim"
-              },
-              "time": "DSQ"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Bob WHITE",
-                "country": "USA",
-                "year_birth": 1948,
-                "team": "Puget Sound Masters"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 4,
+          "athlete_details": {
+            "athlete": "Takeki UESUGI",
+            "country": "JPN",
+            "year_birth": 1942,
+            "team": "TEAM SOURIN"
+          },
+          "time": "3:43.35"
+        },
+        {
+          "rank": 5,
+          "athlete_details": {
+            "athlete": "Takahiro TAKIMOTO",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "RILA HITACHI"
+          },
+          "time": "3:53.12"
+        },
+        {
+          "rank": 6,
+          "athlete_details": {
+            "athlete": "Joaquin CANALES",
+            "country": "ESP",
+            "year_birth": 1940,
+            "team": "R.C. MEDITERRANEO"
+          },
+          "time": "4:01.83"
+        },
+        {
+          "rank": 7,
+          "athlete_details": {
+            "athlete": "Zeev SHABTAY",
+            "country": "ISR",
+            "year_birth": 1941,
+            "team": "Aquatikim"
+          },
+          "time": "4:02.27"
+        },
+        {
+          "rank": 8,
+          "athlete_details": {
+            "athlete": "Masamichi OGAWA",
+            "country": "JPN",
+            "year_birth": 1942,
+            "team": "KONAMI IKOMA"
+          },
+          "time": "4:16.93"
+        },
+        {
+          "rank": 9,
+          "athlete_details": {
+            "athlete": "Alfred Otto SEEGER",
+            "country": "GER",
+            "year_birth": 1940,
+            "team": "TSV Lindau"
+          },
+          "time": "4:23.51"
+        },
+        {
+          "rank": 10,
+          "athlete_details": {
+            "athlete": "Masaji NAGASHIMA",
+            "country": "JPN",
+            "year_birth": 1942,
+            "team": "BEAU SIRENE"
+          },
+          "time": "4:35.59"
+        },
+        {
+          "rank": 11,
+          "athlete_details": {
+            "athlete": "Takashi OKABE",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "WINGS"
+          },
+          "time": "4:45.08"
+        },
+        {
+          "rank": 12,
+          "athlete_details": {
+            "athlete": "Michael READ",
+            "country": "GBR",
+            "year_birth": 1941,
+            "team": "Brighton SC"
+          },
+          "time": "5:00.41"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Hisayuki SHIMOMURA",
+            "country": "JPN",
+            "year_birth": 1942,
+            "team": "SPL KANI"
+          },
+          "time": "DNS"
+        }
+      ]
+    },
+    {
+      "age_group": "75-79",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Osamu KUMAGAI",
+            "country": "JPN",
+            "year_birth": 1947,
+            "team": "FITTA MATSUYAMA"
+          },
+          "time": "3:20.20"
+        },
+        {
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Michael MACMANUS",
+            "country": "JPN",
+            "year_birth": 1946,
+            "team": "ITOMAN MUKAIYAMA"
+          },
+          "time": "3:31.67"
+        },
+        {
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Yuichi SHIMOTSU",
+            "country": "JPN",
+            "year_birth": 1944,
+            "team": "PAL OTA"
+          },
+          "time": "3:43.35"
+        },
+        {
+          "rank": 4,
+          "athlete_details": {
+            "athlete": "Fernando CANEPA BUSTAMANTE",
+            "country": "PER",
+            "year_birth": 1947,
+            "team": "PERU MASTER – Swim"
+          },
+          "time": "3:53.54"
+        },
+        {
+          "rank": 5,
+          "athlete_details": {
+            "athlete": "Kenji HIROBAYASHI",
+            "country": "JPN",
+            "year_birth": 1948,
+            "team": "KYUSHU UNIVERSITY MASTERS"
+          },
+          "time": "4:14.29"
+        },
+        {
+          "rank": 6,
+          "athlete_details": {
+            "athlete": "Morrie CHIANG",
+            "country": "TPE",
+            "year_birth": 1947,
+            "team": "Chinese Taipei Master Swim"
+          },
+          "time": "4:23.36"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "David EDSALL",
+            "country": "USA",
+            "year_birth": 1948,
+            "team": "New England Masters Swim"
+          },
+          "time": "DSQ"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Bob WHITE",
+            "country": "USA",
+            "year_birth": 1948,
+            "team": "Puget Sound Masters"
+          },
+          "time": "DNS"
         }
       ]
     }

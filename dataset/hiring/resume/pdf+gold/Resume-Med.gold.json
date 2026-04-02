@@ -1,15 +1,20 @@
 {
   "personalInfo": {
     "fullName": "Dr. Amanda Rodriguez, MD",
-    "emails": "a.rodriguez@hospexample.org",
-    "phones": "(617) 555-0276",
-    "personalStatement": "Board-certified cardiologist with 16+ years of experience in interventional cardiology, clinical research, and patient care"
+    "personalStatement": "Board-certified cardiologist with 16+ years of experience in interventional cardiology, clinical research, and patient care",
+    "contact": {
+      "emails": [
+        "a.rodriguez@hospexample.org"
+      ],
+      "phones": [
+        "(617) 555-0276"
+      ]
+    }
   },
   "media": [],
   "socialLinks": [],
   "workExperience": [
     {
-      "array_index": 0,
       "employer": "Westfield Heart Institute",
       "jobTitle": "Director of Interventional Cardiology",
       "startDate": "2019-06-30T22:00:00.000Z",
@@ -18,7 +23,6 @@
       "description": "Oversee cardiac catheterization laboratory performing 800+ procedures annually; Lead multidisciplinary team of 12 physicians, nurses, and technicians; Perform complex interventional procedures including angioplasty, stent placement, and TAVR; Serve on hospital quality improvement committee reducing post-procedure complications by 23%"
     },
     {
-      "array_index": 1,
       "employer": "Riverstone Medical Center",
       "jobTitle": "Attending Physician",
       "startDate": "2014-07-31T22:00:00.000Z",
@@ -27,7 +31,6 @@
       "description": "Provided comprehensive cardiovascular care to 2,000+ patients annually; Performed diagnostic procedures including echocardiograms and stress tests; Supervised cardiology fellows and medical residents during clinical rotations; Participated in on-call rotation for acute cardiac emergencies"
     },
     {
-      "array_index": 2,
       "employer": "Northbridge University Medical Center",
       "jobTitle": "Cardiology Fellow",
       "startDate": "2011-06-30T22:00:00.000Z",
@@ -50,22 +53,19 @@
   ],
   "education": [
     {
-      "array_index": 0,
       "institution": "Clearwater Medical Institute",
-      "qualificationTitle": "Fellowship \u2013 Interventional Cardiology",
+      "qualificationTitle": "Fellowship – Interventional Cardiology",
       "startDate": "2011-06-30T22:00:00.000Z",
       "endDate": "2014-05-31T22:00:00.000Z"
     },
     {
-      "array_index": 1,
       "institution": "Pinewood General Hospital",
-      "qualificationTitle": "Residency \u2013 Internal Medicine",
+      "qualificationTitle": "Residency – Internal Medicine",
       "startDate": "2008-06-30T22:00:00.000Z",
       "endDate": "2011-05-31T22:00:00.000Z",
       "description": "Chief Resident (2010-2011)"
     },
     {
-      "array_index": 2,
       "institution": "Bayshore Medical College",
       "qualificationTitle": "Doctor of Medicine (MD)  ",
       "startDate": "2004-07-31T22:00:00.000Z",
@@ -73,9 +73,8 @@
       "description": "Honor Society for Medical Excellence"
     },
     {
-      "array_index": 3,
       "institution": "Springdale University",
-      "qualificationTitle": "BS \u2013 Biology ",
+      "qualificationTitle": "BS – Biology ",
       "startDate": "2000-08-31T22:00:00.000Z",
       "endDate": "2004-04-30T22:00:00.000Z",
       "description": "Summa Cum Laude (GPA: 3.98/4.0)"
@@ -83,43 +82,37 @@
   ],
   "certificationsAndAwards": [
     {
-      "array_index": 0,
       "category": "Board Certifications",
       "organization": "National Board of Internal Medicine",
       "description": "Cardiology",
-      "date": 2011
+      "date": "2011"
     },
     {
-      "array_index": 1,
       "category": "Board Certifications",
       "organization": "National Board of Internal Medicine",
       "description": "Interventional Cardiology",
-      "date": 2014
+      "date": "2014"
     },
     {
-      "array_index": 2,
       "description": "Advanced Cardiac Life Support (ACLS)"
     }
   ],
   "publications": [
     {
-      "array_index": 0,
       "authors": "Rodriguez A, et al.",
       "title": "Outcomes of TAVR in High-Risk Patients",
       "publisher": "Journal of Cardiology",
-      "year": 2023
+      "year": "2023"
     },
     {
-      "array_index": 1,
       "authors": "Rodriguez A, et al.",
       "title": "Novel Biomarkers in Heart Failure",
       "publisher": "Cardiovascular Medicine",
-      "year": 2021
+      "year": "2021"
     }
   ],
   "other": [
     {
-      "array_index": 0,
       "content": "Principal Investigator: Government-funded study on novel antiplatelet therapy (2020-2024)\nAuthor of 42 peer-reviewed publications in major cardiology journals\nH-index: 28"
     }
   ]

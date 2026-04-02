@@ -1,197 +1,193 @@
 {
   "championship": "WORLD AQUATICS MASTERS CHAMPIONSHIPS KYUSHU 2023",
-  "events": [
+  "event_details": {
+    "sex": "MEN",
+    "length": "50m",
+    "category": "Butterfly"
+  },
+  "age_groups": [
     {
-      "event_details": {
-        "sex": "MEN",
-        "length": "50m",
-        "category": "Butterfly"
-      },
-      "age_groups": [
+      "age_group": "90-94",
+      "results": [
         {
-          "age_group": "90-94",
-          "results": [
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Chen-I LIN",
-                "country": "TPE",
-                "year_birth": 1933,
-                "team": "Chinese Taipei Master Swim"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Chen-I LIN",
+            "country": "TPE",
+            "year_birth": 1933,
+            "team": "Chinese Taipei Master Swim"
+          },
+          "time": "DNS"
+        }
+      ]
+    },
+    {
+      "age_group": "85-89",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "David CUMMING",
+            "country": "GBR",
+            "year_birth": 1938,
+            "team": "Eastbourne SC"
+          },
+          "time": "45.52"
         },
         {
-          "age_group": "85-89",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "David CUMMING",
-                "country": "GBR",
-                "year_birth": 1938,
-                "team": "Eastbourne SC"
-              },
-              "time": "45.52"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Tony GOODWIN",
-                "country": "AUS",
-                "year_birth": 1937,
-                "team": "Manly Masters Swimming Club"
-              },
-              "time": "47.49"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Masakazu MITSUHASHI",
-                "country": "JPN",
-                "year_birth": 1938,
-                "team": "CFC SOGA"
-              },
-              "time": "1:09.63"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Hiroshi MATSUMOTO",
-                "country": "JPN",
-                "year_birth": 1936,
-                "team": "TEAM FURINKAZAN"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Tony GOODWIN",
+            "country": "AUS",
+            "year_birth": 1937,
+            "team": "Manly Masters Swimming Club"
+          },
+          "time": "47.49"
         },
         {
-          "age_group": "80-84",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Yasutaka KOIKE",
-                "country": "JPN",
-                "year_birth": 1943,
-                "team": "NARITASUIEIAIKO"
-              },
-              "time": "37.31"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Akira TAKAKURA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "KONAMI TENJIN"
-              },
-              "time": "38.14"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Takahiro TOKUDA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "MURASAKI SPORTS"
-              },
-              "time": "40.94"
-            },
-            {
-              "rank": 4,
-              "athlete_details": {
-                "athlete": "Koutarou YUGAWA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "NAGASAKISC"
-              },
-              "time": "41.83"
-            },
-            {
-              "rank": 5,
-              "athlete_details": {
-                "athlete": "Kazuhiko EBARA",
-                "country": "JPN",
-                "year_birth": 1941,
-                "team": "BIG S AMI"
-              },
-              "time": "41.97"
-            },
-            {
-              "rank": 6,
-              "athlete_details": {
-                "athlete": "Kenji HIROSE",
-                "country": "JPN",
-                "year_birth": 1940,
-                "team": "TEAM SHIMABARA"
-              },
-              "time": "49.7"
-            },
-            {
-              "rank": 7,
-              "athlete_details": {
-                "athlete": "Anan AEOCHAROEN",
-                "country": "THA",
-                "year_birth": 1942,
-                "team": "Prachaniwet Sport Center"
-              },
-              "time": "54.23"
-            },
-            {
-              "rank": 8,
-              "athlete_details": {
-                "athlete": "Hikaru KAGAMI",
-                "country": "JPN",
-                "year_birth": 1943,
-                "team": "ITOMAN KOGA"
-              },
-              "time": "59.02"
-            },
-            {
-              "rank": 9,
-              "athlete_details": {
-                "athlete": "Jamie CHALMERS",
-                "country": "CAN",
-                "year_birth": 1943,
-                "team": "Carleton University Masters"
-              },
-              "time": "1:19.02"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Hiroshi ABE",
-                "country": "JPN",
-                "year_birth": 1942,
-                "team": "SAPPORO MST"
-              },
-              "time": "NT"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Istvan PRIBOJ",
-                "country": "SRB",
-                "year_birth": 1942,
-                "team": "SC Spartak"
-              },
-              "time": "DSQ"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Yoni TADIR",
-                "country": "ISR",
-                "year_birth": 1943,
-                "team": "Aquatikim"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Masakazu MITSUHASHI",
+            "country": "JPN",
+            "year_birth": 1938,
+            "team": "CFC SOGA"
+          },
+          "time": "1:09.63"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Hiroshi MATSUMOTO",
+            "country": "JPN",
+            "year_birth": 1936,
+            "team": "TEAM FURINKAZAN"
+          },
+          "time": "DNS"
+        }
+      ]
+    },
+    {
+      "age_group": "80-84",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Yasutaka KOIKE",
+            "country": "JPN",
+            "year_birth": 1943,
+            "team": "NARITASUIEIAIKO"
+          },
+          "time": "37.31"
+        },
+        {
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Akira TAKAKURA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "KONAMI TENJIN"
+          },
+          "time": "38.14"
+        },
+        {
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Takahiro TOKUDA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "MURASAKI SPORTS"
+          },
+          "time": "40.94"
+        },
+        {
+          "rank": 4,
+          "athlete_details": {
+            "athlete": "Koutarou YUGAWA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "NAGASAKISC"
+          },
+          "time": "41.83"
+        },
+        {
+          "rank": 5,
+          "athlete_details": {
+            "athlete": "Kazuhiko EBARA",
+            "country": "JPN",
+            "year_birth": 1941,
+            "team": "BIG S AMI"
+          },
+          "time": "41.97"
+        },
+        {
+          "rank": 6,
+          "athlete_details": {
+            "athlete": "Kenji HIROSE",
+            "country": "JPN",
+            "year_birth": 1940,
+            "team": "TEAM SHIMABARA"
+          },
+          "time": "49.7"
+        },
+        {
+          "rank": 7,
+          "athlete_details": {
+            "athlete": "Anan AEOCHAROEN",
+            "country": "THA",
+            "year_birth": 1942,
+            "team": "Prachaniwet Sport Center"
+          },
+          "time": "54.23"
+        },
+        {
+          "rank": 8,
+          "athlete_details": {
+            "athlete": "Hikaru KAGAMI",
+            "country": "JPN",
+            "year_birth": 1943,
+            "team": "ITOMAN KOGA"
+          },
+          "time": "59.02"
+        },
+        {
+          "rank": 9,
+          "athlete_details": {
+            "athlete": "Jamie CHALMERS",
+            "country": "CAN",
+            "year_birth": 1943,
+            "team": "Carleton University Masters"
+          },
+          "time": "1:19.02"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Hiroshi ABE",
+            "country": "JPN",
+            "year_birth": 1942,
+            "team": "SAPPORO MST"
+          },
+          "time": "NT"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Istvan PRIBOJ",
+            "country": "SRB",
+            "year_birth": 1942,
+            "team": "SC Spartak"
+          },
+          "time": "DSQ"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Yoni TADIR",
+            "country": "ISR",
+            "year_birth": 1943,
+            "team": "Aquatikim"
+          },
+          "time": "DNS"
         }
       ]
     }

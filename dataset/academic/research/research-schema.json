@@ -37,11 +37,13 @@
         "properties": {
           "name": {
             "type": "string",
+            "description": "Full name of the author (e.g., 'Wayne Xin Zhao').",
             "evaluation_config": "string_semantic"
           },
           "email": {
             "type": "string",
             "format": "email",
+            "description": "Contact email address of the author.",
             "evaluation_config": "string_exact"
           },
           "affiliation": {
@@ -52,6 +54,7 @@
           }
         }
       },
+      "description": "List of authors of the paper.",
       "minItems": 1,
       "evaluation_config": "array_llm"
     },
@@ -72,45 +75,8 @@
     "citations": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": [
-          "title",
-          "year"
-        ],
-        "properties": {
-          "ids": {
-            "type": "string",
-            "description": "The unique identifier for the paper. Example: '10.1000/xyz123' or 'arXiv:1234.5678'.",
-            "evaluation_config": "string_exact"
-          },
-          "year": {
-            "type": "integer",
-            "maximum": 2100,
-            "minimum": 1000,
-            "evaluation_config": "integer_exact"
-          },
-          "title": {
-            "type": "string",
-            "evaluation_config": "string_semantic"
-          },
-          "venue": {
-            "type": "string",
-            "evaluation_config": "string_semantic"
-          },
-          "authors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "evaluation_config": "string_semantic"
-                }
-              }
-            },
-            "evaluation_config": "array_llm"
-          }
-        }
+        "type": "string",
+        "evaluation_config": "string_semantic"
       },
       "description": "List of works cited by this paper.",
       "evaluation_config": "array_llm"

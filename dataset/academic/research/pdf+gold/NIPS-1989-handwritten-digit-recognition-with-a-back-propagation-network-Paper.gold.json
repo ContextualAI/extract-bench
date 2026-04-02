@@ -6,44 +6,37 @@
   "authors": [
     {
       "name": "Le Cun",
-      "array_index": 0,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "B. Boser",
-      "array_index": 1,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "J. S. Denker",
-      "array_index": 2,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "D. Henderson",
-      "array_index": 3,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "R. E. Howard",
-      "array_index": 4,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "W. Hubbard",
-      "array_index": 5,
       "affiliation": "AT&T Bell Laboratories"
     },
     {
       "name": "L. D. Jackel",
-      "array_index": 6,
       "affiliation": "AT&T Bell Laboratories"
     }
   ],
   "abstract": "We present an application of back-propagation networks to handwritten digit recognition. Minimal preprocessing of the data was required, but architecture of the network was highly constrained and specifically designed for the task. The input of the network consists of normalized images of isolated digits. The method has 1% error rate and about a 9% reject rate on zipcode digits provided by the U.S. Postal Service.",
   "keywords": [],
   "number_of_pages": 9,
-  "publication_type": "conference paper",
+  "publication_type": "Conference Paper",
   "citations": [
     "Bottou, L.-Y. and Le Cun, Y. (1989). SN2: A Simulator for Connectionist Models. Neuristique SA, Paris, France.",
     "Denker, J., Schwartz, D., Wittner, B., Solla, S. A., Howard, R., Jackel, L., and Hopfield, J. (1987). Large Automatic Learning, Rule Extraction and Generalization. Complex Systems, 1:877–922.",

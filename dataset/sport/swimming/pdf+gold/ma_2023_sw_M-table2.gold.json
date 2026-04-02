@@ -1,127 +1,123 @@
 {
   "championship": "WORLD AQUATICS MASTERS CHAMPIONSHIPS KYUSHU 2023",
-  "events": [
+  "event_details": {
+    "sex": "MEN",
+    "length": "50m",
+    "category": "Backstroke"
+  },
+  "age_groups": [
     {
-      "event_details": {
-        "sex": "MEN",
-        "length": "50m",
-        "category": "Backstroke"
-      },
-      "age_groups": [
+      "age_group": "95-99",
+      "results": [
         {
-          "age_group": "95-99",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Kazuo YASUIKE",
-                "country": "JPN",
-                "year_birth": 1928,
-                "team": "OISO MSC"
-              },
-              "time": "1:12.15"
-            }
-          ]
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Kazuo YASUIKE",
+            "country": "JPN",
+            "year_birth": 1928,
+            "team": "OISO MSC"
+          },
+          "time": "1:12.15"
+        }
+      ]
+    },
+    {
+      "age_group": "90-94",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Fritz ILGEN",
+            "country": "GER",
+            "year_birth": 1933,
+            "team": "TSV Lindau"
+          },
+          "time": "51.78"
         },
         {
-          "age_group": "90-94",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Fritz ILGEN",
-                "country": "GER",
-                "year_birth": 1933,
-                "team": "TSV Lindau"
-              },
-              "time": "51.78"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Fusao TAKAHASHI",
-                "country": "JPN",
-                "year_birth": 1933,
-                "team": "JUMP"
-              },
-              "time": "55.97"
-            },
-            {
-              "rank": 3,
-              "athlete_details": {
-                "athlete": "Chen-I LIN",
-                "country": "TPE",
-                "year_birth": 1933,
-                "team": "Chinese Taipei Master Swim"
-              },
-              "time": "1:05.93"
-            },
-            {
-              "rank": 4,
-              "athlete_details": {
-                "athlete": "Adelson LEITE JULIAO",
-                "country": "BRA",
-                "year_birth": 1933,
-                "team": "CIRCULO MILITAR DE FORTALEZA"
-              },
-              "time": "1:15.23"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Itaru YANAGAWA",
-                "country": "JPN",
-                "year_birth": 1930,
-                "team": "ITOMAN NAGAZUMI"
-              },
-              "time": "DSQ"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Carlos SALAZAR FLORES",
-                "country": "MEX",
-                "year_birth": 1933,
-                "team": "CLUB BANCARIO DE GUADALAJARRA"
-              },
-              "time": "DNS"
-            },
-            {
-              "rank": "NA",
-              "athlete_details": {
-                "athlete": "Takashi MASAMURA",
-                "country": "JPN",
-                "year_birth": 1931,
-                "team": "TAC"
-              },
-              "time": "DNS"
-            }
-          ]
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Fusao TAKAHASHI",
+            "country": "JPN",
+            "year_birth": 1933,
+            "team": "JUMP"
+          },
+          "time": "55.97"
         },
         {
-          "age_group": "85-89",
-          "results": [
-            {
-              "rank": 1,
-              "athlete_details": {
-                "athlete": "Tatsuro ONO",
-                "country": "JPN",
-                "year_birth": 1937,
-                "team": "JAPAN SS"
-              },
-              "time": "56.14"
-            },
-            {
-              "rank": 2,
-              "athlete_details": {
-                "athlete": "Yoshinobu OKADA",
-                "country": "JPN",
-                "year_birth": 1937,
-                "team": "PAL OTA"
-              },
-              "time": "1:02.01"
-            }
-          ]
+          "rank": 3,
+          "athlete_details": {
+            "athlete": "Chen-I LIN",
+            "country": "TPE",
+            "year_birth": 1933,
+            "team": "Chinese Taipei Master Swim"
+          },
+          "time": "1:05.93"
+        },
+        {
+          "rank": 4,
+          "athlete_details": {
+            "athlete": "Adelson LEITE JULIAO",
+            "country": "BRA",
+            "year_birth": 1933,
+            "team": "CIRCULO MILITAR DE FORTALEZA"
+          },
+          "time": "1:15.23"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Itaru YANAGAWA",
+            "country": "JPN",
+            "year_birth": 1930,
+            "team": "ITOMAN NAGAZUMI"
+          },
+          "time": "DSQ"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Carlos SALAZAR FLORES",
+            "country": "MEX",
+            "year_birth": 1933,
+            "team": "CLUB BANCARIO DE GUADALAJARRA"
+          },
+          "time": "DNS"
+        },
+        {
+          "rank": "NA",
+          "athlete_details": {
+            "athlete": "Takashi MASAMURA",
+            "country": "JPN",
+            "year_birth": 1931,
+            "team": "TAC"
+          },
+          "time": "DNS"
+        }
+      ]
+    },
+    {
+      "age_group": "85-89",
+      "results": [
+        {
+          "rank": 1,
+          "athlete_details": {
+            "athlete": "Tatsuro ONO",
+            "country": "JPN",
+            "year_birth": 1937,
+            "team": "JAPAN SS"
+          },
+          "time": "56.14"
+        },
+        {
+          "rank": 2,
+          "athlete_details": {
+            "athlete": "Yoshinobu OKADA",
+            "country": "JPN",
+            "year_birth": 1937,
+            "team": "PAL OTA"
+          },
+          "time": "1:02.01"
         }
       ]
     }

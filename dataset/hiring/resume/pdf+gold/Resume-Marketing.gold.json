@@ -1,9 +1,15 @@
 {
   "personalInfo": {
     "fullName": "Jennifer Walsh",
-    "emails": "j.walsh@emailexample.com",
-    "phones": "(503) 555-0891",
-    "personalStatement": "Dynamic marketing professional with 7+ years of experience driving brand growth and customer engagement across digital and traditional channels. Proven track record of developing successful campaigns that increase revenue by 30%+ and building high-performing teams. Skilled in strategic planning, content creation, social media management, and data-driven decision making."
+    "personalStatement": "Dynamic marketing professional with 7+ years of experience driving brand growth and customer engagement across digital and traditional channels. Proven track record of developing successful campaigns that increase revenue by 30%+ and building high-performing teams. Skilled in strategic planning, content creation, social media management, and data-driven decision making.",
+    "contact": {
+      "emails": [
+        "j.walsh@emailexample.com"
+      ],
+      "phones": [
+        "(503) 555-0891"
+      ]
+    }
   },
   "media": [],
   "other": [],
@@ -11,7 +17,6 @@
   "languages": [],
   "workExperience": [
     {
-      "array_index": 0,
       "employer": "Velocity Consumer Brands",
       "jobTitle": "Marketing Manager",
       "startDate": "2020-03-31T22:00:00.000Z",
@@ -20,7 +25,6 @@
       "description": "Lead integrated marketing initiatives for three product lines generating $15M in annual revenue; Manage team of four marketing specialists; Collaborate with sales, product, and creative departments; Developed digital marketing strategy increasing online sales by 42%; Launched social media campaign reaching 3.2M impressions and growing follower base by 85% in six months; Managed annual marketing budget of $800K, consistently delivering projects 10% under budget; Implemented marketing automation platform reducing campaign deployment time by 50%; Spearheaded rebranding initiative that improved brand recognition by 28% in target demographics; Coordinated with external agencies and vendors to produce high-quality content and promotional materials."
     },
     {
-      "array_index": 1,
       "employer": "Horizon Tech Solutions",
       "jobTitle": "Digital Marketing Specialist",
       "startDate": "2017-05-31T22:00:00.000Z",
@@ -29,7 +33,6 @@
       "description": "Executed multi-channel digital marketing campaigns for B2B technology company serving interprise clients; Collaborated with sales team to generate qualified leads and support customer aquisition skills; Created and managed content calendar resulting in 150% increase in website traffic over 18 months; Optimized SEO strategy improving organic search ranking for 25+ target keywords to first page results; Designed email marketing campaigns achieving average open rate of 32% and click-through rate of 8%; Conducted A/B testing on landing pages increasing conversion rates by 24%; Analyzed campaign performance using analytics tools and provided actionable insights to leadership; Managed company social media presence across five platforms with conistent engagement growth."
     },
     {
-      "array_index": 2,
       "employer": "Redwood Retail Group",
       "jobTitle": "Marketing Coordinator",
       "startDate": "2015-07-31T22:00:00.000Z",
@@ -87,7 +90,6 @@
   },
   "education": [
     {
-      "array_index": 0,
       "institution": "Crestview State University",
       "qualificationTitle": "Bachelor of Business Administration (BBA) - Marketing",
       "endDate": "2015-04-30T22:00:00.000Z",
@@ -97,59 +99,50 @@
   ],
   "certificationsAndAwards": [
     {
-      "array_index": 0,
       "category": "Certifications & Training",
       "organization": "Digital Marketing Institute",
       "description": "Digital Marketing Certified Professional (DMCP)",
-      "date": 2021
+      "date": "2021"
     },
     {
-      "array_index": 1,
       "category": "Certifications & Training",
       "organization": "Content Marketing Academy",
       "description": "Content Marketing Certification",
-      "date": 2020
+      "date": "2020"
     },
     {
-      "array_index": 2,
       "category": "Certifications & Training",
       "organization": "Web Analytics Association",
       "description": "Analytics Professional Certification",
-      "date": 2019
+      "date": "2019"
     },
     {
-      "array_index": 3,
       "category": "Achievements & Recognition",
       "description": "Marketing Excellence Award",
       "organization": "Velocity Consumer Brands",
-      "date": 2022
+      "date": "2022"
     },
     {
-      "array_index": 4,
       "category": "Achievements & Recognition",
       "description": "Campaign featured in Marketing Innovation Magazine as industry best practice",
-      "date": 2021
+      "date": "2021"
     },
     {
-      "array_index": 5,
       "category": "Achievements & Recognition",
       "description": "Led team that won company-wide innovation challenge with new customer engagement concept",
-      "date": 2020
+      "date": "2020"
     },
     {
-      "array_index": 6,
       "category": "Professional Affiliations",
       "description": "Member",
       "organization": "American Marketing Association (AMA)"
     },
     {
-      "array_index": 7,
       "category": "Professional Affiliations",
       "description": "Member",
       "organization": "Digital Marketing Association of Portland"
     },
     {
-      "array_index": 8,
       "category": "Professional Affiliations",
       "description": "Volunteer",
       "organization": "Youth Business Mentorship Program"

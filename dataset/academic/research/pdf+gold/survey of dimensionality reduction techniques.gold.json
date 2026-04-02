@@ -6,19 +6,16 @@
   "authors": [
     {
       "name": "C.O.S. Sorzano",
-      "array_index": 0,
       "email": "coss@cnb.csic.es",
       "affiliation": "Natl. Centre for Biotechnology (CSIC)"
     },
     {
       "name": "J. Vargas",
-      "array_index": 1,
       "email": "jvargas@cnb.csic.es",
       "affiliation": "Natl. Centre for Biotechnology (CSIC)"
     },
     {
       "name": "A. Pascual-Montano",
-      "array_index": 2,
       "email": "pascual@cnb.csic.es",
       "affiliation": "Natl. Centre for Biotechnology (CSIC)"
     }
